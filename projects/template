@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<link rel="stylesheet" href="../static/main.css">
+		<title></title>
+	</head>
+	<body>
+		<div class="wrapper">
+		<div class="box header">Header</div>
+		<div class="box sidebar">Sidebar</div>
+		<div class="box content">
+			<!-- content -->
+		</div>
+		<div class="box footer">Footer</div>
+		</div>
+	</body>
+</html>
