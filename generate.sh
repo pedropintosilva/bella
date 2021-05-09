@@ -9,7 +9,7 @@
 mkdir -p public/projects/
 mkdir -p public/projects/images/
 mkdir -p public/style/
-mkdir -p public/images/
+rm -r public/images/
 
 # Copy static content
 cp -rp static/images public/images
