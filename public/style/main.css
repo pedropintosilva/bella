@@ -25,7 +25,7 @@ body {
 }
 
 .wrapper {
-	background-color: #fff;
+	background-color: transparent;
 	color: #444;
 	display: grid;
 	margin: 0 auto;
@@ -93,4 +93,19 @@ body {
 .header,
 .footer {
 	background-color: #999;
+}
+
+.identity {
+	display: block;
+	float: none;
+	margin: 0 auto;
+	overflow: hidden;
+}
+
+#site-title a {
+	text-decoration: none;
+	display: block;
+	border-top: 1px solid;
+	border-bottom: 1px solid;
+	text-transform: uppercase;
 }
