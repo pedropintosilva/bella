@@ -2,9 +2,9 @@
 
 # Copy Homepage
 cp -p content/index.html public/index.html
+cp -p static/main.css public/style/main.css
 
 # Temp file
-rm content/temp
 touch content/temp
 
 # Create array with projectslist
