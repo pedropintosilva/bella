@@ -131,3 +131,13 @@ body {
 	font-size: 80%;
 	font-weight: 400;
 }
+
+#prime_nav {
+	list-style: none;
+	padding: 0;
+	font-size: 16px;
+}
+
+#prime_nav li {
+	margin-bottom: 18px;
+}

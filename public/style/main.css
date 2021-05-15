@@ -3,6 +3,7 @@ body {
 }
 
 .sidebar {
+	background-color: transparent !important;
 	grid-area: sidebar;
 }
 
@@ -45,7 +46,7 @@ body {
 
 @media only screen and (min-width: 500px)  {
 	.wrapper {
-		grid-template-columns: 20% auto;
+		grid-template-columns: 178px auto;
 		grid-template-areas:
 			'header   header'
 			'sidebar  content'
@@ -56,7 +57,7 @@ body {
 @media only screen and (min-width: 600px)   {
 	.wrapper {
 		grid-gap: 20px;
-		grid-template-columns: 120px auto;
+		grid-template-columns: 178px auto;
 		grid-template-areas:
 			'header  header'
 			'sidebar content'
@@ -66,17 +67,22 @@ body {
 }
 
 .box {
-	background-color: #444;
+	background-color: #fafafa;
 	color: #fff;
 	border-radius: 5px;
 	padding: 10px;
 	font-size: 150%;
 }
 
+.box.content {
+    background-color: transparent;
+}
+
 .box--card {
 	background: white;
 	border-radius: 3px;
-	min-height: 98px;
+	min-height: 224px;
+	min-width: 224px;
 }
 
 .box--card h2{
@@ -100,6 +106,11 @@ body {
 	float: none;
 	margin: 0 auto;
 	overflow: hidden;
+	text-transform: uppercase;
+}
+
+#site-title {
+    margin: 0;
 }
 
 #site-title a {
@@ -107,5 +118,26 @@ body {
 	display: block;
 	border-top: 1px solid;
 	border-bottom: 1px solid;
+	color: #444;
+	font-size: 16px;
+}
+
+#site-description {
+	color: #AEAEAE;
+	margin: 0.5em auto 0;
+	text-align: left;
 	text-transform: uppercase;
+	letter-spacing: .05em;
+	font-size: 80%;
+	font-weight: 400;
+}
+
+#prime_nav {
+	list-style: none;
+	padding: 0;
+	font-size: 16px;
+}
+
+#prime_nav li {
+	margin-bottom: 18px;
 }
