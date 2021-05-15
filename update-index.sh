@@ -29,7 +29,7 @@ sed -i '/<!-- projectCard -->/ {r '"content/temp"'
 d;};' public/index.html 
 
 # Adjust paths
-sed -i 's|static/main.css| style/main.css|' public/index.html
+sed -i 's|../static/main.css| style/main.css|' public/index.html
 
 # remove temporary file
 rm content/temp
