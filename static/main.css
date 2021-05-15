@@ -81,7 +81,8 @@ body {
 .box--card {
 	background: white;
 	border-radius: 3px;
-	min-height: 98px;
+	min-height: 224px;
+	min-width: 224px;
 }
 
 .box--card h2{
