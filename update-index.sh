@@ -16,7 +16,7 @@ ITER=0
 for i in "${LIST[@]}"
 do
 	echo ${ITER}
-	echo '<div class="box box'${ITER}' box--card">' >> content/temp
+	echo '<div class="box box'${ITER}' box--card" style="background-image: url(projects/images/'${i}'-cover.png">' >> content/temp
 	echo '  <a href="projects/'${i}'.html">' >> content/temp
 	echo '    <h2>'${LIST[${ITER}]}'</h2>' >> content/temp
 	echo '  </a>' >> content/temp
