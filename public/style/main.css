@@ -132,6 +132,18 @@ body {
 .header {
 	border-bottom: 1px solid #aeaeae;
 	border-radius: 0;
+	overflow-x: scroll;
+}
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.header::-webkit-scrollbar {
+display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.header {
+-ms-overflow-style: none; /* IE and Edge */
+scrollbar-width: none; /* Firefox */
 }
 
 .header ul {
@@ -139,6 +151,7 @@ body {
 	font-size: 11px;
 	color: #555;
 	width: 100%;
+	min-width: 592px;
 	padding: 0;
 }
 
