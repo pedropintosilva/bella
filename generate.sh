@@ -1,5 +1,8 @@
 #! /bin/bash
 
+# Generates Ptoject HTML project and subsequent 
+# static files from .odt file
+
 # mkdir venv
 # python3 -m venv ./venv
 # source ./venv/bin/activate
@@ -15,6 +18,9 @@ rm -r public/images/
 cp -rp static/images public/images
 cp -p static/main.css public/style/main.css
 
+# Copy project's images
+cp -rp content/projects/images/. public/projects/images
+
 FILENAME="$1"
 
 # CONVERT With python, --plain to get without css
@@ -22,6 +28,9 @@ odf2xhtml --plain content/projects/$FILENAME.odt > public/projects/"${FILENAME}_
 
 # Replace LO pictures with images
 sed -i 's|src="Pictures/|src="images/|' public/projects/"${FILENAME}_converted".html
+
+# Do up one level in directory when placing img tags sources
+sed -i 's|src="../images/|src="images/|' public/projects/"${FILENAME}_converted".html
 
 # To remove anchors from headings
 sed -i -e 's|<a id="anchor001"></a>||' public/projects/"${FILENAME}_converted".html
