@@ -1,5 +1,7 @@
 body {
 	margin: 0 40px;
+	background-color: #eee;
+	font-family: Open Sans
 }
 
 .sidebar {
@@ -26,6 +28,7 @@ body {
 }
 
 .wrapper {
+	margin: 0;
 	background-color: transparent;
 	color: #444;
 	display: grid;
@@ -41,7 +44,8 @@ body {
 	width: 100%;
 	display: grid;
 	grid-gap: 10px;
-	grid-template-columns: repeat(4, calc(25% - 20px));
+	grid-template-columns: repeat(1);
+	grid-auto-rows: minmax(124px, auto);
 }
 
 @media only screen and (min-width: 500px)  {
@@ -62,7 +66,21 @@ body {
 			'header  header'
 			'sidebar content'
 			'footer  footer';
-		max-width: 90%;
+	}
+	.content--wrapper {
+		grid-template-columns: repeat(2, 50%);
+	}
+}
+
+@media only screen and (min-width: 900px)   {
+	.content--wrapper {
+		grid-template-columns: repeat(3, 33%);
+	}
+}
+
+@media only screen and (min-width: 900px)   {
+	.content--wrapper {
+		grid-template-columns: repeat(4, calc(25% - 20px));
 	}
 }
 
@@ -76,17 +94,27 @@ body {
 
 .box.content {
     background-color: transparent;
+	color: #444;
 }
 
 .box--card {
-	background: white;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-color: white;
 	border-radius: 3px;
-	min-height: 224px;
-	min-width: 224px;
+	box-shadow: 2px 2px 18px 1px #00000005, inset -2px -2px 2px 0 #f5f8f9;
+	padding: 0;
+}
+
+.box--card:hover {
+	box-shadow: 3px 3px 24px 1px #0000000f, inset -2px -2px 2px 0 #f5f8f9;
 }
 
 .box--card h2{
 	font-size: 16px;
+	background-image: linear-gradient(to right, white, #ffffffde 80%, #fff0);
+	padding: 0 4px;
+	color: #3591b9;
 }
 
 .box--card a {
@@ -98,7 +126,25 @@ body {
 
 .header,
 .footer {
-	background-color: #999;
+	background-color: transparent;
+}
+
+.header {
+	border-bottom: 1px solid #aeaeae;
+	border-radius: 0;
+}
+
+.header ul {
+	display: inline-flex;
+	font-size: 11px;
+	color: #555;
+	width: 100%;
+	padding: 0;
+}
+
+.header li {
+	flex: 1 0 25%;
+	text-align: center;
 }
 
 .identity {
@@ -107,6 +153,7 @@ body {
 	margin: 0 auto;
 	overflow: hidden;
 	text-transform: uppercase;
+	background-image: linear-gradient(to right, #eee0, #eee0, #eee0 54%, #eee), linear-gradient(#eee, #f8f8f8,#f8f8f8 84%, #eee);
 }
 
 #site-title {
@@ -130,6 +177,7 @@ body {
 	letter-spacing: .05em;
 	font-size: 80%;
 	font-weight: 400;
+	background-color: #eee;
 }
 
 #prime_nav {
@@ -140,4 +188,34 @@ body {
 
 #prime_nav li {
 	margin-bottom: 18px;
+}
+
+a {
+	color: #3591b9;
+	text-decoration-color: #8bb6c8;
+	text-decoration-style: underline;
+}
+
+/*A link which has a destination*/
+a:link {
+	text-decoration-color: #8bb6c8;
+}
+
+/* A link when it has already been visited */
+a:visited {
+	text-decoration-color: #8bb6c8;
+}
+
+a:focus {
+	text-decoration-style: double;
+}
+
+a:hover {
+	text-decoration-style: double;
+}
+
+ /*A link when it is being activated (e.g. clicked on)*/
+a:active, a.selected {
+	text-decoration: none;
+	background-color: #cbe1ea;
 }
