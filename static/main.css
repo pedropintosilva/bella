@@ -97,40 +97,56 @@ body {
 	color: #444;
 }
 
+.box.content.page {
+	max-width: 75%;
+	background-image: linear-gradient(to right, #ffffffb8, white 2%, white 90%, #ffffff8a);
+	box-shadow: 1px 1px 2px 1px #00000021;
+	padding: 32px 138px 32px 108px;
+	box-sizing: border-box;
+	min-width: 788px;
+}
+
 .box--card {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: white;
-	border-radius: 3px;
-	box-shadow: 2px 2px 18px 1px #00000005, inset -2px -2px 2px 0 #f5f8f9;
+	border: 3px double #AEAEAE;
+	border-radius: 0 0 2px 2px;
+	box-shadow: 0 1px 0 2px #eee, 0 32px 0 2px #44444417;
 	padding: 0;
 }
 
 .box--card:hover {
-	box-shadow: 3px 3px 24px 1px #0000000f, inset -2px -2px 2px 0 #f5f8f9;
+	box-shadow: 0 0 24px 1px #0000000f, inset -2px -2px 2px 0 #f5f8f9;
+	border-color: #444;
 }
 
 .box--card h2{
 	font-size: 16px;
 	background-image: linear-gradient(to right, white, #ffffffde 80%, #fff0);
 	padding: 0 4px;
-	color: #3591b9;
+	color: #444;
+	position: absolute;
+	bottom: 0;
 }
 
 .box--card a {
-	display: block;
-	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	height: calc(100% + 46px);
 	width: 100%;
 	text-decoration: none;
+	position: relative;
 }
 
 .header,
-.footer {
+.top-left,
+.footer{
 	background-color: transparent;
 }
 
 .header {
-	border-bottom: 1px solid #aeaeae;
 	border-radius: 0;
 	overflow-x: scroll;
 }
