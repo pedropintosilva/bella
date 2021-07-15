@@ -51,6 +51,9 @@ sed -i 's|../static/main.css|../style/main.css|' public/projects/$FILENAME.html
 sed -i '/<!-- content -->/ {r '"public/projects/${FILENAME}_converted.html"'
 d;};' public/projects/$FILENAME.html
 
+# add additional class to content box
+sed -i 's|box content|box content page|' public/projects/$FILENAME.html
+
 # Append project to projects list
 echo $FILENAME >> content/projects/list-ids
 
