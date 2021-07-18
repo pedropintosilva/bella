@@ -27,15 +27,23 @@ odf2xhtml --plain content/$FILENAME.odt > public/"${FILENAME}_converted".html
 # Replace LO pictures with images
 sed -i 's|src="Pictures/|src="images/|' public/"${FILENAME}_converted".html
 
-# Do up one level in directory when placing img tags sources
-sed -i 's|src="../projects/images/|src="images/|' public/"${FILENAME}_converted".html
+# Go up one level in directory when placing img tags sources
+sed -i 's|src="../images/|src="images/|' public/"${FILENAME}_converted".html
 
 # To remove anchors from headings
 sed -i -e 's|<a id="anchor001"></a>||' public/"${FILENAME}_converted".html
 
+# Create temporary converted file where only inner html is kept
+# (meta, html and body tags are removed)
+cp -frp public/"${FILENAME}_converted".html -T public/"${FILENAME}_temp".html
+# remove first 7 lines:
+sed -i -e '1,7d' public/"${FILENAME}_temp".html
+# remove last 2 lines
+sed -i '$d' public/"${FILENAME}_temp".html
+sed -i '$d' public/"${FILENAME}_temp".html
+
 # Duplicate, To have before and after applying index template
 cp -frp content/projects/template -T public/$FILENAME.html
-
 #   -f, --force: if an existing destination file cannot be opened, remove it and try again)
 #   -p:     same as --preserve=mode,ownership,timestamps
 #   -R, -r, --recursive
@@ -45,7 +53,11 @@ sed -i 's|../static/main.css|style/main.css|' public/$FILENAME.html
 
 # Modify content/$FILENAME.html
 # and insert contents from index template before and after
-# https://www.linuxquestions.org/questions/linux-newbie-8/how-to-replace-string-pattern-with-multi-line-text-in-bash-script-212983/
-sed -i '/<!-- content -->/ {r '"public/${FILENAME}_converted.html"'
+sed -i '/<!-- content -->/ {r '"public/${FILENAME}_temp.html"'
 d;};' public/$FILENAME.html
 
+# Add aditional class to body
+sed -i 's|<body>|<body class="about">|' public/$FILENAME.html
+
+# Remove temporary file
+rm public/"${FILENAME}_temp".html
