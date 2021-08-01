@@ -50,20 +50,7 @@ body {
 	grid-auto-rows: minmax(124px, auto);
 }
 
-@media only screen and (min-width: 500px)  {
-	.wrapper {
-		grid-template-columns: 178px auto;
-		grid-template-areas:
-			'header   header'
-			'sidebar  content'
-			'footer   footer';
-	}
-	.sidebar {
-		top: 0px;
-	}
-}
-
-@media only screen and (min-width: 600px)   {
+@media only screen and (min-width: 800px or min-device-width: 800px)   {
 	.wrapper {
 		grid-gap: 20px;
 		grid-template-columns: 178px auto;
@@ -77,13 +64,13 @@ body {
 	}
 }
 
-@media only screen and (min-width: 900px)   {
+@media only screen and (min-width: 900px or min-device-width: 900px)   {
 	.content--wrapper {
 		grid-template-columns: repeat(3, 33%);
 	}
 }
 
-@media only screen and (min-width: 900px)   {
+@media only screen and (min-width: 1000px or min-device-width: 1000px)   {
 	.content--wrapper {
 		grid-template-columns: repeat(4, calc(25% - 20px));
 	}
@@ -224,7 +211,7 @@ scrollbar-width: none; /* Firefox */
 	margin-bottom: 18px;
 }
 
-@media only screen and (max-width: 499px) {
+@media only screen and (max-width: 800px or max-device-width: 800px) {
 	#prime_nav {
 		font-size: 11px;
 		display: grid;
