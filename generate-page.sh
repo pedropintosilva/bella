@@ -1,12 +1,23 @@
 #! /bin/bash
 
-# Generates Ptoject HTML project and subsequent 
+# Generates Ptoject HTML project and subsequent
 # static files from .odt file
 
 # mkdir venv
 # python3 -m venv ./venv
 # source ./venv/bin/activate
 # pip install odfpy
+
+FILENAME="$1"
+TITLE="$2"
+
+if [ -z "$FILENAME" ]; then
+    read -p "Missing ODT filename. Enter it without file extension: " FILENAME
+fi
+
+if [ -z "$TITLE" ]; then
+    read -p "Missing title. Set it with proper case. Use dashes instead of spaces: " TITLE
+fi
 
 # Be sure we have all folders ready
 mkdir -p public/style/
@@ -18,8 +29,6 @@ cp -p static/main.css public/style/main.css
 
 # Copy page's images
 cp -rp content/images/. public/images
-
-FILENAME="$1"
 
 # CONVERT With python, --plain to get without css
 odf2xhtml --plain content/$FILENAME.odt > public/"${FILENAME}_converted".html
@@ -58,6 +67,11 @@ d;};' public/$FILENAME.html
 
 # Add aditional class to body
 sed -i 's|<body>|<body class="about">|' public/$FILENAME.html
+
+# Set current menu item
+TITLE=$(echo $TITLE | tr "-" " ")
+echo $TITLE
+sed -i "s|>${TITLE}|class=\"selected\">${TITLE}|" public/$FILENAME.html
 
 # Remove temporary file
 rm public/"${FILENAME}_temp".html
