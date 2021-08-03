@@ -50,7 +50,7 @@ body {
 	grid-auto-rows: minmax(124px, auto);
 }
 
-@media only screen and (min-width: 800px or min-device-width: 800px)   {
+@media only screen and (min-width: 800px)   {
 	.wrapper {
 		grid-gap: 20px;
 		grid-template-columns: 178px auto;
@@ -64,13 +64,13 @@ body {
 	}
 }
 
-@media only screen and (min-width: 900px or min-device-width: 900px)   {
+@media only screen and (min-width: 900px)   {
 	.content--wrapper {
 		grid-template-columns: repeat(3, 33%);
 	}
 }
 
-@media only screen and (min-width: 1000px or min-device-width: 1000px)   {
+@media only screen and (min-width: 1000px)   {
 	.content--wrapper {
 		grid-template-columns: repeat(4, calc(25% - 20px));
 	}
