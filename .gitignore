@@ -1,2 +1,5 @@
 # python venv related stuff
 venv
+
+# generated public folder
+public/
