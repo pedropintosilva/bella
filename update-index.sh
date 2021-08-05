@@ -1,5 +1,22 @@
 #! /bin/bash
 
+if [ ! -d public ]; then
+	echo "Public directory is missing! Creating..."
+	mkdir public
+	mkdir public/style
+	mkdir public/projects
+	mkdir public/images
+fi
+
+# Call generate-page.sh
+#  How many top pages?
+echo 'Total pages found: '
+find ./content/ -maxdepth 1 -name  \*.odt | wc -l
+find ./content/ -maxdepth 1 -name  \*.odt | cut -d '/' -f3  | cut -d '.' -f1 | while read line; do
+	echo 'Creating Page '$line
+	./generate-page.sh $line
+done
+
 # Copy Homepage
 cp -p content/index.html public/index.html
 cp -p static/main.css public/style/main.css
@@ -26,7 +43,7 @@ done
 
 # Append project cards to index
 sed -i '/<!-- projectCard -->/ {r '"content/temp"'
-d;};' public/index.html 
+d;};' public/index.html
 
 # Adjust paths
 sed -i 's|../static/main.css| style/main.css|' public/index.html
