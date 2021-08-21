@@ -11,13 +11,9 @@
 FILENAME="$1"
 TITLE="$2"
 
-if [ -z "$FILENAME" ]; then
-    read -p "Missing ODT filename. Enter it without file extension: " FILENAME
-fi
+[ -z "$FILENAME" ] && read -p "Missing ODT filename. Enter it without file extension: " FILENAME
 
-if [ -z "$TITLE" ]; then
-    read -p "Missing title. Set it with proper case. Use dashes instead of spaces: " TITLE
-fi
+[ -z "$TITLE" ] && TITLE=$(echo "$FILENAME" | sed 's/.*/\L&/; s/[a-z]*/\u&/g' | tr '-' ' ')
 
 # Be sure we have all folders ready
 mkdir -p public/style/
