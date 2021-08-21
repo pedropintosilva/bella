@@ -1,12 +1,23 @@
 #! /bin/bash
 
-if [ ! -d public ]; then
-	echo "Public directory is missing! Creating..."
-	mkdir public
-	mkdir public/style
-	mkdir public/projects
-	mkdir public/images
-fi
+# colors
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+BLUE='\033[0;34m'
+PURPLE='\033[0;35m'
+NC='\033[0m' # No Color
+
+echo -e "\n${RED}Removing generated old files\n* rm -r public/\n* > content/projects/list-ids\n* > content/projects/list-names"
+# Remove anything old and empty lists
+rm -r public/
+> content/projects/list-ids
+> content/projects/list-names
+
+echo -e "\n${GREEN}Creating directory tree...\n* public\n* public/style\n* public/projects\n* public/images${NC}"
+mkdir public
+mkdir public/style
+mkdir public/projects
+mkdir public/images
 
 # Call generate-page.sh
 #  How many top pages?
