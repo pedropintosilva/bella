@@ -2,4 +2,4 @@
 venv
 
 # generated public folder
-public/
+public/*
