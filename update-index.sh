@@ -21,12 +21,22 @@ mkdir public/images
 
 # Call generate-page.sh
 #  How many top pages?
-echo 'Total pages found: '
-find ./content/ -maxdepth 1 -name  \*.odt | wc -l
-find ./content/ -maxdepth 1 -name  \*.odt | cut -d '/' -f3  | cut -d '.' -f1 | while read line; do
-	echo 'Creating Page '$line
-	./generate-page.sh $line
+TOTALPAGES=$(find ./content/ -maxdepth 1 -name  \*.odt | wc -l)
+echo -e '\n'${BLUE}'Creating Pages ('${TOTALPAGES}'):\n----------------------------'
+find ./content/ -maxdepth 1 -name  \*.odt | cut -d '/' -f3  | cut -d '.' -f1 |
+while read line; do
+  ./generate-page.sh $line
 done
+echo -e '----------------------------\n'
+# Call generate-page.sh
+#  How many Projects?
+TOTALPROJECTS=$(find ./content/projects/ -maxdepth 1 -name  \*.odt | wc -l)
+echo -e ''${PURPLE}'Creating Projects ('${TOTALPROJECTS}'):\n----------------------------'
+find ./content/projects/ -maxdepth 1 -name  \*.odt | cut -d '/' -f4  | cut -d '.' -f1 |
+while read line; do
+  ./generate.sh $line
+done
+echo -e '----------------------------\n'${NC}''
 
 # Copy Homepage
 cp -p content/index.html public/index.html
@@ -39,6 +49,7 @@ touch content/temp
 mapfile -t LIST < content/projects/list-ids
 mapfile -t NAMES < content/projects/list-names
 
+echo 'Updating homepage with latest project cards...'
 # Update Homepage
 ITER=0
 for i in "${LIST[@]}"
@@ -62,6 +73,8 @@ d;};' public/index.html
 
 # Adjust paths
 sed -i 's|../static/main.css| style/main.css|' public/index.html
+echo 'Adjusting file paths...'
 
 # remove temporary file
 rm content/temp
+echo -e 'Removing temp files...\n\nWebsite generated:\n  ⮡ 📂 ./public'

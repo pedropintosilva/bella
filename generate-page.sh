@@ -66,7 +66,7 @@ sed -i 's|<body>|<body class="about">|' public/$FILENAME.html
 
 # Set current menu item
 TITLE=$(echo $TITLE | tr "-" " ")
-echo $TITLE
+echo -e '📘'$TITLE'\n  ⮡ public/'$FILENAME'.html'
 sed -i "s|>${TITLE}|class=\"selected\">${TITLE}|" public/$FILENAME.html
 
 # Remove temporary file
