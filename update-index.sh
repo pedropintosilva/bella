@@ -43,12 +43,16 @@ mapfile -t NAMES < content/projects/list-names
 ITER=0
 for i in "${LIST[@]}"
 do
-	echo ${ITER}
-	echo '<div class="box box'${ITER}' box--card" style="background-image: url(projects/images/'${i}'-cover.png">' >> content/temp
-	echo '  <a href="projects/'${i}'.html">' >> content/temp
-	echo '    <h2>'${LIST[${ITER}]}'</h2>' >> content/temp
-	echo '  </a>' >> content/temp
-	echo '</div>' >> content/temp
+# Use to store it in a variable isntead: `read -r -d '' VAR <<- EOM`
+# Add '-' to '<<'  to ignore tabs like so: `cat >> content/temp <<- EOM`
+# but then you must use tabs, not spaces, for indentation in your code
+cat >> content/temp << EOM
+						<div class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png">
+							<a href="projects/${i}.html">
+								<h2>${LIST[${ITER}]}</h2>
+							</a>
+						</div>
+EOM
 	ITER=$(expr $ITER + 1)
 done
 
