@@ -60,7 +60,7 @@ echo $FILENAME >> content/projects/list-ids
 # Get project's title and append it to the list of names
 perl -ln0e '$,="\n";print /(?<=<h1>).*?(?=<\/h1)/sg' public/projects/$FILENAME.html >> content/projects/list-names
 
-echo '👾' tail -n 1 content/projects/list-names
+echo "👾 $(tail -n 1 content/projects/list-names)"
 echo '  ⮡ public/'$FILENAME'.html'
 
 
