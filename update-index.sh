@@ -28,7 +28,7 @@ while read line; do
   ./generate-page.sh $line
 done
 echo -e '----------------------------\n'
-# Call generate-page.sh
+# Call generate.sh
 #  How many Projects?
 TOTALPROJECTS=$(find ./content/projects/ -maxdepth 1 -name  \*.odt | wc -l)
 echo -e ''${PURPLE}'Creating Projects ('${TOTALPROJECTS}'):\n----------------------------'
