@@ -26,6 +26,9 @@ cp -p static/main.css public/style/main.css
 # Copy page's images
 cp -rp content/images/. public/images
 
+# Create new empty page following template
+cp -frp content/projects/template -T public/$FILENAME.html
+
 # CONVERT With python, --plain to get without css
 odf2xhtml --plain content/$FILENAME.odt > public/"${FILENAME}_converted".html
 
@@ -35,7 +38,7 @@ sed -i 's|src="Pictures/|src="images/|' public/"${FILENAME}_converted".html
 # Go up one level in directory when placing img tags sources
 sed -i 's|src="../images/|src="images/|' public/"${FILENAME}_converted".html
 
-# To remove anchors from headings
+# Remove anchors from headings
 sed -i -e 's|<a id="anchor001"></a>||' public/"${FILENAME}_converted".html
 
 # Create temporary converted file where only inner html is kept
@@ -46,12 +49,6 @@ sed -i -e '1,7d' public/"${FILENAME}_temp".html
 # remove last 2 lines
 sed -i '$d' public/"${FILENAME}_temp".html
 sed -i '$d' public/"${FILENAME}_temp".html
-
-# Duplicate, To have before and after applying index template
-cp -frp content/projects/template -T public/$FILENAME.html
-#   -f, --force: if an existing destination file cannot be opened, remove it and try again)
-#   -p:     same as --preserve=mode,ownership,timestamps
-#   -R, -r, --recursive
 
 # Adjust paths
 sed -i 's|../static/main.css|style/main.css|' public/$FILENAME.html
