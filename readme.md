@@ -1,4 +1,5 @@
 ﻿# Bella: Makes your website out of ODF documents
+![](static/images/bella.png)
 The goal here is to have a nice way to generate and maintain a static website based solely on standardized OpenDocument format (ODF), currently just the ODT file extension.
 
 * No JS
