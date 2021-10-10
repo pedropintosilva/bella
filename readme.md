@@ -1,5 +1,6 @@
-﻿# Bella: Makes your website out of ODF documents
-![](static/images/bella.png)
+<img src="static/images/bella.png" alt="" style="max-width: 100%;" width="198">
+
+# Bella: Makes your website out of ODF documents
 The goal here is to have a nice way to generate and maintain a static website based solely on standardized OpenDocument format (ODF), currently just the ODT file extension.
 
 * No JS
