@@ -1,5 +1,5 @@
-# Intro
-The goal here is to have a nice way to generate and maintain a static website based solely on standardized OpenDocument format (ODF). For lazy people or perhaps, could be an nice way to maitaing relatives' webpages
+﻿# Bella: Makes your website out of ODF documents
+The goal here is to have a nice way to generate and maintain a static website based solely on standardized OpenDocument format (ODF), currently just the ODT file extension.
 
 * No JS
 * Helps you with your new website (portfolio, blog)
@@ -7,6 +7,11 @@ The goal here is to have a nice way to generate and maintain a static website ba
 * Updates your index page 
 
 **To do: Move my personal content (website) from this repository or at least move it within some sort of "example" folder**
+**To do: make possible to update homepage strings (contacts etc) without touching HTML**
+
+Credits: image used for project example
+* https://commons.wikimedia.org/wiki/File:Projet_de_machine_a%C3%A9rostatique_par_l%E2%80%99ing%C3%A9nieur_Leli%C3%A8vre_-_Archives_nationales-_F-12-2430.jpg
+* 
 
 ## Motivation
 Why do this? Well just for fun :) and because I myself would like to have an alternative workflow where:

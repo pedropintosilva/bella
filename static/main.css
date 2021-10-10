@@ -100,6 +100,10 @@ body {
 	box-sizing: border-box;
 }
 
+.box.content.page img {
+	width: 100%;
+}
+
 .box--card {
 	background-size: cover;
 	background-repeat: no-repeat;
