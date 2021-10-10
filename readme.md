@@ -1,30 +1,51 @@
+# Intro
+The goal here is to have a nice way to generate and maintain a static website based solely on standardized OpenDocument format (ODF). For lazy people or perhaps, could be an nice way to maitaing relatives' webpages
+
+* No JS
+* Helps you with your new website (portfolio, blog)
+* Allows to create pages, blog posts using LibreOffice or Collabora Online
+* Updates your index page 
+
+**To do: Move my personal content (website) from this repository or at least move it within some sort of "example" folder**
+
+## Motivation
+Why do this? Well just for fun :) and because I myself would like to have an alternative workflow where:
+* There is no need to rely on over complicated web frameworks
+* I can keep using my favourite office suite to write my stuff while taking advantage of
+  * Spellcheckers 
+  * Thesaurus
+  * AutoCorrect
+  * Styles
+  * Automatically have your webpages ready for offline consumption
+
 # Structure
-* public: folder to use in server 
+* public: generator folder to use in server 
 * content: All content in odt
 * static: Images and CSS
 
 
 # Workflow
-## Projects
-
+## Creating a Portfolio
+### Add projects
 1. Create a new odt file inside of `content/projects`
 2. Write description and add images
-3. Generate corresponding html page `./generate.sh [odtfilenameWithoutextension]`
+3. Generate corresponding page `./generate.sh [odtfilenameWithoutextension]`
 4. Update list of projects and correspondent homepage `./update-index.sh `
 
-# Converting ODT to HTML
-## with LO
+### Add top pages
+1. Create a new odt file inside of `content/[newpage.odt]`
+2. Write description and add images
+3. Generate corresponding page `./generate-page.sh [newpage]` (without file extension)
+4. Update homepage menu `./update-index.sh `
 
-soffice --headless --convert-to html:HTML --outdir . test-zamad.odt 
+# How
+Using python to get minimal results (without CSS) so we can have web content following website’s style-sheet and still be able to have document files with their own style.
 
-## With python to get without css
-
-odf2xhtml --plain test-zamad.odt > test-zamad.html
-
-### To remove anchors from headings
-
-sed -i -e 's/stringname/excludetodelete/' filename.txt 
-
-Example remove "<a id="anchor001"></a>"
-
-sed -i -e 's|<a id="anchor001"></a>||' test-zamad.html
+## Installation Requirements 
+1. Clone this repository or use the scripts
+2. Install odf2xhtml (for example via pip using virtual environment)
+* ``Create folder mkdir venv``
+* ``Create environment python3 -m venv ./venv``
+* ``Activate it source ./venv/bin/activate``
+*  ``pip install odfpy``
+  
