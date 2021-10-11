@@ -12,8 +12,11 @@ The goal here is to have a nice way to generate and maintain a static website ba
 **To do: make possible to update homepage strings (contacts etc) without touching HTML**
 
 Credits: image used for project example
-* https://commons.wikimedia.org/wiki/File:Projet_de_machine_a%C3%A9rostatique_par_l%E2%80%99ing%C3%A9nieur_Leli%C3%A8vre_-_Archives_nationales-_F-12-2430.jpg
-* 
+* https://commons.wikimedia.org/wiki/File:Projet_de_machine_a%C3%A9rostatique_par_l%E2%80%99ing%C3%A9nieur_Leli%C3%A8vre_-_Archives_nationales-_F-12-2430.jpg 
+
+https://user-images.githubusercontent.com/65948705/136772933-9bb7fce4-9631-409b-9b04-a063c0f1d8cc.mp4
+
+https://user-images.githubusercontent.com/65948705/136773130-a3452f07-bc9e-49d1-8548-bcd10fc213de.mp4
 
 ## Motivation
 Why do this? Well just for fun :) and because I myself would like to have an alternative workflow where:
