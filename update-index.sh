@@ -9,7 +9,9 @@ NC='\033[0m' # No Color
 
 echo -e "\n${RED}Removing generated old files\n* rm -r public/\n* > content/projects/list-ids\n* > content/projects/list-names"
 # Remove anything old and empty lists
-rm -r public/
+cd public/
+rm -r `ls | grep -v ".git"`
+cd ..
 > content/projects/list-ids
 > content/projects/list-names
 
