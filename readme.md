@@ -1,3 +1,7 @@
+[🔗 SEE IT IN ACTION 👉](https://pedropintosilva.github.io/bella/)
+
+[⚓ JUMP TO REQUIREMENTS 👇](https://github.com/pedropintosilva/bella/tree/master#installation-requirements)
+
 <img src="static/images/bella.png" alt="" style="max-width: 100%;" width="198">
 
 # Bella: Makes your website out of ODF documents
@@ -6,13 +10,13 @@ The goal here is to have a nice way to generate and maintain a static website ba
 * No JS
 * Helps you with your new website (portfolio, blog)
 * Allows to create pages, blog posts using LibreOffice or Collabora Online
-* Updates your index page 
+* Updates your index page
 
 **To do: Move my personal content (website) from this repository or at least move it within some sort of "example" folder**
 **To do: make possible to update homepage strings (contacts etc) without touching HTML**
 
 Credits: image used for project example
-* https://commons.wikimedia.org/wiki/File:Projet_de_machine_a%C3%A9rostatique_par_l%E2%80%99ing%C3%A9nieur_Leli%C3%A8vre_-_Archives_nationales-_F-12-2430.jpg 
+* https://commons.wikimedia.org/wiki/File:Projet_de_machine_a%C3%A9rostatique_par_l%E2%80%99ing%C3%A9nieur_Leli%C3%A8vre_-_Archives_nationales-_F-12-2430.jpg
 
 https://user-images.githubusercontent.com/65948705/136772933-9bb7fce4-9631-409b-9b04-a063c0f1d8cc.mp4
 
@@ -22,14 +26,14 @@ https://user-images.githubusercontent.com/65948705/136773130-a3452f07-bc9e-49d1-
 Why do this? Well just for fun :) and because I myself would like to have an alternative workflow where:
 * There is no need to rely on over complicated web frameworks
 * I can keep using my favourite office suite to write my stuff while taking advantage of
-  * Spellcheckers 
+  * Spellcheckers
   * Thesaurus
   * AutoCorrect
   * Styles
   * Automatically have your webpages ready for offline consumption
 
 # Structure
-* public: generator folder to use in server 
+* public: generator folder to use in server
 * content: All content in odt
 * static: Images and CSS
 
@@ -51,11 +55,11 @@ Why do this? Well just for fun :) and because I myself would like to have an alt
 # How
 Using python to get minimal results (without CSS) so we can have web content following website’s style-sheet and still be able to have document files with their own style.
 
-## Installation Requirements 
+## Installation Requirements
 1. Clone this repository or use the scripts
 2. Install odf2xhtml (for example via pip using virtual environment)
 * ``Create folder mkdir venv``
 * ``Create environment python3 -m venv ./venv``
 * ``Activate it source ./venv/bin/activate``
 *  ``pip install odfpy``
-  
+
