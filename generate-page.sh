@@ -41,6 +41,9 @@ sed -i 's|src="../images/|src="images/|' public/"${FILENAME}_converted".html
 # Remove anchors from headings
 sed -i -e 's|<a id="anchor001"></a>||' public/"${FILENAME}_converted".html
 
+# Remove any div tags
+sed -i -e 's|<div>||;s|</div>||' public/"${FILENAME}_converted".html
+
 # Create temporary converted file where only inner html is kept
 # (meta, html and body tags are removed)
 cp -frp public/"${FILENAME}_converted".html -T public/"${FILENAME}_temp".html
