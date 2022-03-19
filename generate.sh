@@ -19,7 +19,6 @@ mkdir -p public/style/
 rm -r public/images/
 
 # Copy static content
-cp -rp static/images public/images
 cp -p static/main.css public/style/main.css
 
 # Copy project's images
