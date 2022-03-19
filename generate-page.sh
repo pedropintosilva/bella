@@ -10,14 +10,17 @@
 
 FILENAME="$1"
 TITLE="$2"
+REMOVE="$3"
 
 [ -z "$FILENAME" ] && read -p "Missing ODT filename. Enter it without file extension: " FILENAME
 
 [ -z "$TITLE" ] && TITLE=$(echo "$FILENAME" | sed 's/.*/\L&/; s/[a-z]*/\u&/g' | tr '-' ' ')
 
-# Be sure we have all folders ready
-mkdir -p public/style/
-rm -r public/images/
+if [ -n "$REMOVE" ]; then
+	# Be sure we have all folders ready
+	mkdir -p public/style/
+	rm -r public/images/
+fi
 
 # Copy static content
 cp -rp static/images public/images

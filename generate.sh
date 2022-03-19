@@ -9,14 +9,17 @@
 # pip install odfpy
 
 FILENAME="$1"
+REMOVE="$2"
 
 [ -z "$FILENAME" ] && read -p "Missing ODT filename. Enter it without file extension: " FILENAME
 
-# Be sure we have all folders ready
-mkdir -p public/projects/
-mkdir -p public/projects/images/
-mkdir -p public/style/
-rm -r public/images/
+if [ -n "$REMOVE" ]; then
+	# Be sure we have all folders ready
+	mkdir -p public/projects/
+	mkdir -p public/projects/images/
+	mkdir -p public/style/
+	rm -r public/images/
+fi
 
 # Copy static content
 cp -p static/main.css public/style/main.css
