@@ -239,6 +239,22 @@ body {
 	}
 }
 
+@media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+	body {
+		margin: 0;
+	}
+	.box.content.page {
+		padding: 0 1em;
+		font-size: 110%;
+	}
+	.sidebar {
+		position: static;
+	}
+	.mobile-hidden {
+		display: none;
+	}
+}
+
 a {
 	color: #3591b9;
 	text-decoration-color: #8bb6c8;
