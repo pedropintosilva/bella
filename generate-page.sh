@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Generates Ptoject HTML project and subsequent
+# Generates Page HTML page and subsequent
 # static files from .odt file
 
 # mkdir venv
@@ -27,7 +27,7 @@ cp -p static/main.css public/style/main.css
 cp -rp content/images/. public/images
 
 # Create new empty page following template
-cp -frp content/projects/template -T public/$FILENAME.html
+cp -frp content/pageTemplate -T public/$FILENAME.html
 
 # CONVERT With python, --plain to get without css
 odf2xhtml --plain content/$FILENAME.odt > public/"${FILENAME}_converted".html
