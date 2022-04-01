@@ -107,15 +107,14 @@ body {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: white;
-	border: 3px double #AEAEAE;
-	border-radius: 0 0 2px 2px;
-	box-shadow: 0 1px 0 2px #eee, 0 32px 0 2px #44444417;
+	border: 3px solid #444;
+	box-shadow: none;
 	padding: 0;
 }
 
 .box--card:hover {
-	box-shadow: 0 0 24px 1px #0000000f, inset -2px -2px 2px 0 #f5f8f9;
-	border-color: #444;
+	box-shadow: 0 1px 0 2px #eee, 0 32px 0 2px #fdfdfd;
+	border-width: 0;
 }
 
 .box--card h2{
