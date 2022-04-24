@@ -45,6 +45,14 @@ sed -i -e 's|<a id="anchor001"></a>||' public/projects/"${FILENAME}_converted".h
 # Remove any div tags
 sed -i -e 's|<div>||;s|</div>||' public/projects/"${FILENAME}_converted".html
 
+# Get project's title
+TITLE=$(perl -ln0e '$,="\n";print /(?<=<h1>).*?(?=<\/h1)/sg' public/projects/"${FILENAME}_converted".html)
+echo "Title: "${TITLE}
+# Add title from h1. Converted html is used for RSS feed (so it's just the content of the page)
+sed -i -e 's|<title></title>|<title>'${TITLE}'</title>|' public/projects/"${FILENAME}_converted".html
+# Add title from h1, converted html to final html is used for RSS feed (so it's just the content of the page)
+sed -i -e 's|<title></title>|<title>'${TITLE}'</title>|' public/projects/$FILENAME.html
+
 # Create temporary converted file where only inner html is kept
 # (meta, html and body tags are removed)
 cp -frp public/projects/"${FILENAME}_converted".html -T public/projects/"${FILENAME}_temp".html
@@ -68,8 +76,8 @@ sed -i 's|box content|box content page|' public/projects/$FILENAME.html
 # Append project to projects list
 echo $FILENAME >> content/projects/list-ids
 
-# Get project's title and append it to the list of names
-perl -ln0e '$,="\n";print /(?<=<h1>).*?(?=<\/h1)/sg' public/projects/$FILENAME.html >> content/projects/list-names
+# Append it to the list of names
+echo $TITLE >> content/projects/list-names
 
 # Remove temporary file
 rm public/projects/"${FILENAME}_temp".html
