@@ -6,8 +6,8 @@
 <title>Your RSS Feed Title</title>
 <description>A brief description of your RSS feed.</description>
 <language>en-us</language>
-<link>http://yourwebsite.com/rss.xml</link>
-<atom:link href="http://yourwebsite.com/rss.xml" rel="self" type="application/rss+xml" />
+<link>https://pintosilva.com/rss.xml</link>
+<atom:link href="https://pintosilva.com/rss.xml" rel="self" type="application/rss+xml" />
 
 <!-- LB -->
 
