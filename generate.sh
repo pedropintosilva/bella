@@ -1,6 +1,6 @@
 #! /bin/bash
 
-# Generates Ptoject HTML project and subsequent
+# Generates Project HTML project and subsequent
 # static files from .odt file
 
 # mkdir venv
