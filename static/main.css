@@ -197,8 +197,7 @@ body {
 #site-title a {
 	text-decoration: none;
 	display: block;
-	border-top: 1px solid;
-	border-bottom: 1px solid;
+	border-bottom: 3px solid #444;
 	color: #444;
 	font-size: 16px;
 }
