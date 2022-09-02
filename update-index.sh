@@ -78,6 +78,10 @@ d;};' public/selected-works.html
 sed -i 's|../static/main.css| style/main.css|' public/selected-works.html
 echo 'Adjusting file paths...'
 
+# Add social media menu
+sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
+d;};' public/selected-works.html
+
 # remove temporary file
 rm content/temp
 echo -e 'Removing temp files...\n\nWebsite generated:\n  ⮡ 📂 ./public'

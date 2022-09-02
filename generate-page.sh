@@ -67,6 +67,10 @@ d;};' public/$FILENAME.html
 # Add aditional class to body
 sed -i 's|<body>|<body class="'$FILENAME'">|' public/$FILENAME.html
 
+# Add social media menu
+sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
+d;};' public/$FILENAME.html
+
 # Set current menu item
 TITLE=$(echo $TITLE | tr "-" " ")
 echo -e '📘'$TITLE'\n  ⮡ public/'$FILENAME'.html'
