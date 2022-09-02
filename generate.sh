@@ -82,8 +82,9 @@ echo $TITLE >> content/projects/list-names
 # Remove temporary file
 rm public/projects/"${FILENAME}_temp".html
 
+# Add social media menu
+sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
+d;};' public/projects/$FILENAME.html
+
 echo "👾 $(tail -n 1 content/projects/list-names)"
 echo '  ⮡ public/projects/'$FILENAME'.html'
-
-
-
