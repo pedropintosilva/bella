@@ -13,6 +13,7 @@ NC='\033[0m' # No Color
 > content/projects/list-names
 
 echo -e "\n${GREEN}Creating directory tree...\n* public\n* public/style\n* public/projects\n* public/images${NC}"
+rm -rf public
 mkdir public
 mkdir public/style
 mkdir public/projects
