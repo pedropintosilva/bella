@@ -4,6 +4,25 @@ body {
 	font-family: Open Sans
 }
 
+h1 {
+	font-size: 42px;
+}
+h2 {
+	font-size: 28px;
+}
+h3 {
+	font-size: 18px;
+}
+p {
+	font-size: 14px;
+}
+pre {
+	font-size: 13px;
+	background-image: linear-gradient(to right, white, white 20%, #eee);
+	padding: 13px;
+	border-radius: 8px;
+}
+
 .sidebar {
 	background-color: transparent !important;
 	grid-area: sidebar;
