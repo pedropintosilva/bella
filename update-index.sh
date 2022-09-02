@@ -38,7 +38,10 @@ done
 echo -e '----------------------------\n'${NC}''
 
 # Copy Homepage
-cp -p content/index.html public/index.html
+cp -p public/about.html public/index.html #About is the homepage
+
+# Copy additional files
+cp -p content/cardListTemplate public/selected-works.html
 cp -p static/main.css public/style/main.css
 
 # Temp file
@@ -66,12 +69,12 @@ EOM
 	ITER=$(expr $ITER + 1)
 done
 
-# Append project cards to index
+# Append project cards to selected-works.html page
 sed -i '/<!-- projectCard -->/ {r '"content/temp"'
-d;};' public/index.html
+d;};' public/selected-works.html
 
 # Adjust paths
-sed -i 's|../static/main.css| style/main.css|' public/index.html
+sed -i 's|../static/main.css| style/main.css|' public/selected-works.html
 echo 'Adjusting file paths...'
 
 # remove temporary file
