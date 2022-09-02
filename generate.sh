@@ -86,5 +86,12 @@ rm public/projects/"${FILENAME}_temp".html
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/projects/$FILENAME.html
 
+# Add main menu
+sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
+d;};' public/projects/$FILENAME.html
+
+# Set dir level to the main menu's href (one level up)
+sed -i 's|href="this.|href="../|' public/projects/$FILENAME.html
+
 echo "👾 $(tail -n 1 content/projects/list-names)"
 echo '  ⮡ public/projects/'$FILENAME'.html'

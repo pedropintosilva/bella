@@ -71,11 +71,18 @@ sed -i 's|<body>|<body class="'$FILENAME'">|' public/$FILENAME.html
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/$FILENAME.html
 
+# Add main menu
+sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
+d;};' public/$FILENAME.html
+
+# Set dir level to the main menu's href (already in the correct level)
+sed -i 's|href="this.|href="|' public/$FILENAME.html
+
 # Set current menu item
 TITLE=$(echo $TITLE | tr "-" " ")
 echo -e '📘'$TITLE'\n  ⮡ public/'$FILENAME'.html'
-# comenting this, there is a BUG:
-sed -i "s|>${TITLE}| class=\"selected\">${TITLE}|" public/$FILENAME.html
+
+sed -i 's|data-filename="'$FILENAME'"|class="selected"|' public/$FILENAME.html
 
 # Remove temporary file
 rm public/"${FILENAME}_temp".html

@@ -82,6 +82,16 @@ echo 'Adjusting file paths...'
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/selected-works.html
 
+# Add main menu
+sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
+d;};' public/selected-works.html
+
+# Set dir level to the main menu's href (already in the correct level)
+sed -i 's|href="this.|href="|' public/selected-works.html
+
+# Set current menu item
+sed -i 's|data-filename="selected-works"|class="selected"|' public/selected-works.html
+
 # remove temporary file
 rm content/temp
 echo -e 'Removing temp files...\n\nWebsite generated:\n  ⮡ 📂 ./public'

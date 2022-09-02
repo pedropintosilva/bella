@@ -18,13 +18,7 @@
 				</h1>
 				<span id="site-description" itemprop="description">designer addicted to new media</span>
 			</div>
-			<ul id="prime_nav" class="">
-				<li><a href="selected-works.html">Selected Works</a></li>
-				<li><a href="talks-and-lectures.html">Talks and Lectures</a></li>
-				<li><a href="honors-and-awards.html">Honors and Awards</a></li>
-				<li><a href="http://organic-forms.org/">Organic-forms.org</a></li>
-				<li><a href="index.html">About Pedro</a></li>
-			</ul>
+<!-- menuMainTemplate -->
 		</div>
 		<div class="box content">
 			<!-- content -->
