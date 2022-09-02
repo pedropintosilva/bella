@@ -65,7 +65,7 @@ sed -i '/<!-- content -->/ {r '"public/${FILENAME}_temp.html"'
 d;};' public/$FILENAME.html
 
 # Add aditional class to body
-sed -i 's|<body>|<body class="about">|' public/$FILENAME.html
+sed -i 's|<body>|<body class="'$FILENAME'">|' public/$FILENAME.html
 
 # Set current menu item
 TITLE=$(echo $TITLE | tr "-" " ")
