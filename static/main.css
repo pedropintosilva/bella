@@ -25,6 +25,10 @@ body {
 	grid-area: header;
 }
 
+.header br {
+	display: none;
+}
+
 .footer {
 	grid-area: footer;
 }
@@ -168,7 +172,8 @@ body {
 .header ul {
 	display: grid;
 	grid-auto-flow: column;
-	grid-gap: 10px;
+	grid-gap: 4%;
+	grid-template-columns: 22% 22% 22% 22%;
 	font-size: 11px;
 	color: #555;
 	width: 100%;
@@ -257,6 +262,9 @@ body {
 	}
 	.mobile-hidden {
 		display: none;
+	}
+	.mobile {
+		display: initial !important;
 	}
 }
 
