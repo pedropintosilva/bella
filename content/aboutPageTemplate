@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" type="text/css" href="../static/Jost.css" charset="utf-8" />
+		<link rel="stylesheet" type="text/css" href="../static/main.css">
+		<title></title>
+	</head>
+	<body class="about">
+		<div class="wrapper">
+		<div class="box header">
+<!-- menuSocialTemplate -->
+		</div>
+		<div class="box sidebar">
+			<div class="identity">
+				<h1 itemprop="headline" id="site-title">
+					<a href="index.html" rel="home">Pedro Pinto Silva</a>
+				</h1>
+				<span id="site-description" itemprop="description">designer addicted to new media</span>
+			</div>
+<!-- menuMainTemplate -->
+		</div>
+		<div class="box content sections">
+		  <section class="section--card">
+			<img src="images/avatar.jpeg" alt="Me" class="avatar" width="128" height="128">
+			<h4><em>Hello</em><br>I’m Pedro, and I've been working in graphic designer for 10 years now. I enjoy any form of discourse and I’m into libre software. </h4>
+		  </section>
+		  <section class="section--card">
+		    <h1>Work</h1>
+		    <p>UX and Community Manager at the Collabora Online. Previously, I co-founded Portucalio, Festock and was the UX Architect at Juicymo.</p>
+		    <p><a href="collaboraoffice.com/" target="_blank">Learn about Collbora Online</a></p>
+		    <p><a href="http://www.portucalio.com/blog/" target="_blank">Learn about Portucalio</a></p>
+		    <p><a href="https://juicymo.cz/" target="_blank">Learn about Juicymo</a></p>
+		    <p><a href="http://www.unitarch.eu/" target="_blank">Learn about UNIT architekti</a></p>
+		  </section>
+		  <section class="section--card">
+		    <h1>Code & Collaboration</h1>
+		    <p>I strive to collaborate with open source projects as much as possible, and share what I work on under free and open licenses.</p>
+		    <p><a href="https://github.com/pedropintosilva">Browse contributions on GitHub</a></p>
+		    <p><a href="https://gerrit.libreoffice.org/q/owner:pedro.silva%2540collabora.com" target="_blank">Browse LibreOffice contributions</a></p>
+		    <p><a href="https://gitlab.com/pedro.pinto.silva" target="_blank">Browse contributions on GitLab</a></p>
+		  </section>
+		  <section class="section--card"></section>
+		</div>
+		<!--<div class="box footer">Footer</div>-->
+		</div>
+	</body>
+</html>

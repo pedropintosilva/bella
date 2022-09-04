@@ -38,11 +38,10 @@ while read line; do
 done
 echo -e '----------------------------\n'${NC}''
 
-# Copy Homepage
-cp -p public/about.html public/index.html #About is the homepage
-
 # Copy additional files
 cp -p content/cardListTemplate public/selected-works.html
+# Copy Homepage
+cp -p content/aboutPageTemplate public/index.html
 # Copy styles and fonts
 cp -p static/main.css public/style/main.css
 cp -p static/Jost.css public/style/Jost.css
@@ -87,16 +86,24 @@ echo 'Adjusting file paths...'
 # Add social media menu
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/selected-works.html
+sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
+d;};' public/index.html
 
 # Add main menu
 sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
 d;};' public/selected-works.html
+sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
+d;};' public/index.html
 
 # Set dir level to the main menu's href (already in the correct level)
 sed -i 's|href="this.|href="|' public/selected-works.html
+# Set dir level to the main menu's href (already in the correct level)
+sed -i 's|href="this.|href="|' public/index.html
 
 # Set current menu item
 sed -i 's|data-filename="selected-works"|class="selected"|' public/selected-works.html
+# Set current menu item
+sed -i 's|data-filename="about"|class="selected"|' public/index.html
 
 # remove temporary file
 rm content/temp

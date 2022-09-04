@@ -135,6 +135,7 @@ pre {
 .box.content {
 	background-color: transparent;
 	color: var(--color);
+	box-shadow: inset 1px 0 0 var(--color-tertiary);
 }
 
 .box.content.page {
@@ -148,13 +149,29 @@ pre {
 	max-width: 100%;
 }
 
-.about .box.content img {
+.about .avatar {
 	background-size: cover;
-	border-radius: 50%;
-	box-shadow: 0 1px 6px 0 rgba(0,0,0,0.12),0 1px 4px 0 rgba(0,0,0,0.24);
+	border-radius: 0 0 50%;
+	box-shadow: 2px 2px 0 2px rgb(238, 238, 238), 3px 3px 0 3px var(--color-tertiary);
 	margin: 0;
+	width: 128px;
 }
 
+.about h4 em {
+	font-weight: 200;
+	font-style: normal;
+}
+.about h4 em::after {
+	content: ',';
+}
+.about h4:hover em {
+	font-weight: 300;
+	font-style: normal;
+	background: var(--color-tertiary);
+}
+.about h4:hover em::after {
+	content: '!';
+}
 .box--card {
 	background-size: cover;
 	background-repeat: no-repeat;
@@ -186,6 +203,26 @@ pre {
 	width: 100%;
 	text-decoration: none;
 	position: relative;
+}
+
+.sections {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 3em;
+	width: calc(var(--content-width) * 1.5);
+	max-width: 100%;
+	margin-inline: auto;
+}
+
+.section--card {
+	background: none;
+	border: none;
+	box-shadow: none;
+	margin: 0;
+	max-width: 100%;
+	flex-grow: 1;
+	width: 22rem;
+	padding: 0.5em 1em;
 }
 
 .header,
