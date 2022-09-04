@@ -25,6 +25,7 @@ fi
 # Copy static content
 cp -rp static/images public/images
 cp -p static/main.css public/style/main.css
+cp -p static/Jost.css public/style/Jost.css
 
 # Copy page's images
 cp -rp content/images/. public/images
@@ -58,6 +59,7 @@ sed -i '$d' public/"${FILENAME}_temp".html
 
 # Adjust paths
 sed -i 's|../static/main.css|style/main.css|' public/$FILENAME.html
+sed -i 's|../static/Jost.css|style/Jost.css|' public/$FILENAME.html
 
 # Modify content/$FILENAME.html
 # and insert contents from index template before and after

@@ -43,7 +43,10 @@ cp -p public/about.html public/index.html #About is the homepage
 
 # Copy additional files
 cp -p content/cardListTemplate public/selected-works.html
+# Copy styles and fonts
 cp -p static/main.css public/style/main.css
+cp -p static/Jost.css public/style/Jost.css
+cp -p static/Jost-* public/style/
 
 # Temp file
 touch content/temp
@@ -76,6 +79,9 @@ d;};' public/selected-works.html
 
 # Adjust paths
 sed -i 's|../static/main.css| style/main.css|' public/selected-works.html
+sed -i 's|../static/Jost.css| style/Jost.css|' public/selected-works.html
+sed -i 's|../static/main.css| style/main.css|' public/index.html
+sed -i 's|../static/Jost.css| style/Jost.css|' public/index.html
 echo 'Adjusting file paths...'
 
 # Add social media menu
