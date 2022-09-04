@@ -10,6 +10,7 @@
 	--color-primary: #3591b9;
 	--color-secondary: #8bb6c8;
 	--color-tertiary: #cbe1ea;
+	--font-size-min: 13px;
 }
 @media (prefers-color-scheme: dark) {
 	:root {}
@@ -17,9 +18,13 @@
 body {
 	margin: 0 40px;
 	background-color: var(--bg-color);
-	font-family: Open Sans;
+	font-family: 'Jost';
+	/* mini font size */
+	font-size: var(--font-size-min);
 }
-
+p {
+	font-size: 16px;
+}
 h1 {
 	font-size: 42px;
 }
@@ -29,8 +34,9 @@ h2 {
 h3 {
 	font-size: 18px;
 }
-p {
-	font-size: 14px;
+h4 {
+	font-weight: 200;
+	font-size: 42px;
 }
 pre {
 	font-size: 13px;
@@ -209,7 +215,7 @@ pre {
 	grid-auto-flow: column;
 	grid-gap: 4%;
 	grid-template-columns: 22% 22% 22% 22%;
-	font-size: 11px;
+	font-size: var(--font-size-min);
 	color: var(--color-light);
 	width: 100%;
 	padding: 0;
