@@ -1,7 +1,23 @@
+:root {
+	--bg-color: #eeeeee;
+	--bg-color-paper: white;
+	--bg-color-fake-white: #fafafa;
+	--bg-color-code: linear-gradient(to right, var(--bg-color-paper), var(--bg-color-paper) 20%, var(--bg-color));
+	--color: #444444;
+	--color-light: #555555;
+	--color-lighter: #AEAEAE;
+	--color-paper: var(var(--bg-color-paper));
+	--color-primary: #3591b9;
+	--color-secondary: #8bb6c8;
+	--color-tertiary: #cbe1ea;
+}
+@media (prefers-color-scheme: dark) {
+	:root {}
+}
 body {
 	margin: 0 40px;
-	background-color: #eee;
-	font-family: Open Sans
+	background-color: var(--bg-color);
+	font-family: Open Sans;
 }
 
 h1 {
@@ -18,7 +34,7 @@ p {
 }
 pre {
 	font-size: 13px;
-	background-image: linear-gradient(to right, white, white 20%, #eee);
+	background-image: var(--bg-color-code);
 	padding: 13px;
 	border-radius: 8px;
 }
@@ -54,7 +70,7 @@ pre {
 
 .wrapper {
 	background-color: transparent;
-	color: #444;
+	color: var(--color);
 	display: grid;
 	margin: 0 auto;
 	grid-gap: 1em;
@@ -103,8 +119,8 @@ pre {
 }
 
 .box {
-	background-color: #fafafa;
-	color: #fff;
+	background-color: var(--bg-color-fake-white);
+	color: var(--color-paper);
 	border-radius: 5px;
 	padding: 10px;
 	font-size: 150%;
@@ -112,11 +128,11 @@ pre {
 
 .box.content {
 	background-color: transparent;
-	color: #444;
+	color: var(--color);
 }
 
 .box.content.page {
-	background-image: linear-gradient(to right, #ffffffb8, white 2%, white 90%, #ffffff8a);
+	background-image: linear-gradient(to right, #ffffffb8, var(--bg-color-paper) 2%, var(--bg-color-paper) 90%, #ffffff8a);
 	box-shadow: 1px 1px 2px 1px #00000021;
 	padding: 32px 138px 32px 108px;
 	box-sizing: border-box;
@@ -136,22 +152,22 @@ pre {
 .box--card {
 	background-size: cover;
 	background-repeat: no-repeat;
-	background-color: white;
-	border: 3px solid #444;
+	background-color: var(--bg-color-paper);
+	border: 3px solid var(--color);
 	box-shadow: none;
 	padding: 0;
 }
 
 .box--card:hover {
-	box-shadow: 0 1px 0 2px #eee, 0 32px 0 2px #fdfdfd;
+	box-shadow: 0 1px 0 2px var(--bg-color), 0 32px 0 2px #fdfdfd;
 	border-width: 0;
 }
 
 .box--card h2{
 	font-size: 16px;
-	background-image: linear-gradient(to right, white, #ffffffde 80%, #fff0);
+	background-image: linear-gradient(to right, var(--bg-color-paper), #ffffffde 80%, #fff0);
 	padding: 0 4px;
-	color: #444;
+	color: var(--color);
 	position: absolute;
 	bottom: 0;
 }
@@ -194,7 +210,7 @@ pre {
 	grid-gap: 4%;
 	grid-template-columns: 22% 22% 22% 22%;
 	font-size: 11px;
-	color: #555;
+	color: var(--color-light);
 	width: 100%;
 	padding: 0;
 }
@@ -219,20 +235,20 @@ pre {
 #site-title a {
 	text-decoration: none;
 	display: block;
-	border-bottom: 3px solid #444;
-	color: #444;
+	border-bottom: 3px solid var(--color);
+	color: var(--color);
 	font-size: 16px;
 }
 
 #site-description {
-	color: #AEAEAE;
+	color: var(--color-lighter);
 	margin: 0.5em auto 0;
 	text-align: left;
 	text-transform: uppercase;
 	letter-spacing: .05em;
 	font-size: 80%;
 	font-weight: 400;
-	background-color: #eee;
+	background-color: var(--bg-color);
 }
 
 #prime_nav {
@@ -288,19 +304,19 @@ pre {
 }
 
 a {
-	color: #3591b9;
-	text-decoration-color: #8bb6c8;
+	color: var(--color-primary);
+	text-decoration-color: var(--color-secondary);
 	text-decoration-style: underline;
 }
 
 /*A link which has a destination*/
 a:link {
-	text-decoration-color: #8bb6c8;
+	text-decoration-color: var(--color-secondary);
 }
 
 /* A link when it has already been visited */
 a:visited {
-	text-decoration-color: #8bb6c8;
+	text-decoration-color: var(--color-secondary);
 }
 
 a:focus {
@@ -314,5 +330,5 @@ a:hover {
 /*A link when it is being activated (e.g. clicked on)*/
 a:active, a.selected {
 	text-decoration: none;
-	background-color: #cbe1ea;
+	background-color: var(--color-tertiary);
 }
