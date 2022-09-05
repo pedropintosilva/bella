@@ -1,3 +1,4 @@
+
 :root {
 	--bg-color: #eeeeee;
 	--bg-color-paper: white;
@@ -11,6 +12,7 @@
 	--color-secondary: #8bb6c8;
 	--color-tertiary: #cbe1ea;
 	--font-size-min: 13px;
+	--heading-margin-bottom: 8px;
 }
 @media (prefers-color-scheme: dark) {
 	:root {}
@@ -27,16 +29,20 @@ p {
 }
 h1 {
 	font-size: 42px;
+	margin-bottom: var(--heading-margin-bottom);
 }
 h2 {
 	font-size: 28px;
+	margin-bottom: var(--heading-margin-bottom);
 }
 h3 {
 	font-size: 18px;
+	margin-bottom: var(--heading-margin-bottom);
 }
 h4 {
 	font-weight: 200;
 	font-size: 42px;
+	margin-bottom: var(--heading-margin-bottom);
 }
 pre {
 	font-size: 13px;
@@ -129,7 +135,7 @@ pre {
 	color: var(--color-paper);
 	border-radius: 5px;
 	padding: 10px;
-	font-size: 150%;
+	font-size: 20px;
 }
 
 .box.content {
@@ -147,6 +153,10 @@ pre {
 
 .box.content img {
 	max-width: 100%;
+}
+
+.talks-and-lectures .content img {
+	max-width: 500px;
 }
 
 .about .avatar {
@@ -343,6 +353,14 @@ pre {
 	}
 	.mobile {
 		display: initial !important;
+	}
+	.section--card {
+		width: auto;
+	}
+	pre {
+		padding-inline-end: 0;
+		margin-inline-start: 0;
+		white-space: pre-wrap;
 	}
 }
 
