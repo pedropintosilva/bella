@@ -156,6 +156,13 @@ sed -i 's|data-filename="selected-works"|class="selected"|' public/selected-work
 # Set current menu item
 sed -i 's|data-filename="about"|class="selected"|' public/index.html
 
+# Add RSS feed links everywhere
+find . -type f \( -not -name "*_converted.html" -and -name '*.html' \) |
+while read htmlfilename; do
+sed -i '/<!-- rssFeedTemplate -->/ {r '"rssFeedTemplate"'
+d;};' $htmlfilename
+done
+
 # remove temporary file
 rm content/temp
 rm content/blogtemp
