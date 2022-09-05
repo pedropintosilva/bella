@@ -187,9 +187,22 @@ pre {
 	padding: 0;
 }
 
+.box--card.post {
+	border: none;
+	border-top: 3px solid var(--color);
+	max-height: 248px;
+	overflow: hidden
+}
+
 .box--card:hover {
 	box-shadow: 0 1px 0 2px var(--bg-color), 0 32px 0 2px #fdfdfd;
 	border-width: 0;
+}
+
+.box--card.post:hover {
+	border-color: var(--color-primary);
+	border-width: initial;
+	box-shadow: none;
 }
 
 .box--card h2{
@@ -201,6 +214,22 @@ pre {
 	bottom: 0;
 }
 
+.box--card.post h2{
+	font-size: inherit;
+	position: static;
+}
+
+.box--card.post:hover h2 {
+	color: var(--color-primary);
+}
+
+.box--card.post p {
+	font-size: 30px;
+	font-weight: 300;
+	padding-top: 0;
+	margin-top: 0;
+}
+
 .box--card a {
 	display: flex;
 	flex-direction: column;
@@ -209,6 +238,12 @@ pre {
 	width: 100%;
 	text-decoration: none;
 	position: relative;
+}
+
+.box--card.post a {
+	justify-content: start;
+	height: 100%;
+	color: var(--color-light);
 }
 
 .sections {
