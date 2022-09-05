@@ -1,7 +1,7 @@
 			<ul id="prime_nav" class="">
-				<li><a href="this.blog.html">Blog</a></li>
+				<li><a href="this.blog.html" data-filename="blog">Blog</a></li>
 				<li><a href="this.selected-works.html" data-filename="selected-works">Selected Works</a></li>
 				<li><a href="this.talks-and-lectures.html"  data-filename="talks-and-lectures">Talks and Lectures</a></li>
-				<li><a href="this.bookmarks.html">Bookmarks</a></li>
+				<li><a href="this.bookmarks.html" data-filename="bookmarks">Bookmarks</a></li>
 				<li><a href="this.index.html" data-filename="about">About Pedro</a></li>
 			</ul>
