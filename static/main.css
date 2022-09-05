@@ -152,10 +152,6 @@ pre {
 }
 
 .box.content img {
-	max-width: 100%;
-}
-
-.talks-and-lectures .content img {
 	max-width: 500px;
 }
 
@@ -361,6 +357,9 @@ pre {
 		padding-inline-end: 0;
 		margin-inline-start: 0;
 		white-space: pre-wrap;
+	}
+	.box.content img {
+		max-width: 100%;
 	}
 }
 
