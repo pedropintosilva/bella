@@ -11,6 +11,9 @@ NC='\033[0m' # No Color
 [ -d public ] && echo -e "\n${RED}Removing generated old files\n* rm -r public/\n* > content/projects/list-ids\n* > content/projects/list-names" && cd public/ && rm -r `ls | grep -v ".git"` && cd ..
 > content/projects/list-ids
 > content/projects/list-names
+> content/blog/list-ids
+> content/blog/list-names
+
 
 echo -e "\n${GREEN}Creating directory tree...\n* public\n* public/style\n* public/projects\n* public/images${NC}"
 rm -rf public
@@ -36,10 +39,20 @@ find ./content/projects/ -maxdepth 1 -name  \*.odt | cut -d '/' -f4  | cut -d '.
 while read line; do
   ./generate.sh $line
 done
+echo -e '----------------------------\n'
+# Call generate-post.sh
+#  How many Posts?
+TOTALPOSTS=$(find ./content/blog/ -maxdepth 1 -name  \*.odt | wc -l)
+echo -e ''${BLUE}'Creating Blog Posts ('${TOTALPOSTS}'):\n----------------------------'
+find ./content/blog/ -maxdepth 1 -name  \*.odt | cut -d '/' -f4  | cut -d '.' -f1 |
+while read line; do
+  ./generate-post.sh $line
+done
 echo -e '----------------------------\n'${NC}''
 
 # Copy additional files
 cp -p content/cardListTemplate public/selected-works.html
+cp -p content/cardListTemplate public/blog.html
 # Copy Homepage
 cp -p content/aboutPageTemplate public/index.html
 # Copy styles and fonts
@@ -76,7 +89,37 @@ done
 sed -i '/<!-- projectCard -->/ {r '"content/temp"'
 d;};' public/selected-works.html
 
+# Temp file
+touch content/blogtemp
+
+# Create array with projectslist
+mapfile -t BLOGLIST < content/blog/list-ids
+mapfile -t BLOGNAMES < content/blog/list-names
+mapfile -t BLOGHEADLINERS < content/blog/list-headliners
+
+echo 'Updating blog with latest posts cards...'
+# Update Blog
+ITERPOST=0
+for post in "${BLOGLIST[@]}"
+do
+cat >> content/blogtemp << EOM
+						<div class="box box${ITERPOST} box--card post" style="background-image: url(blog/images/${post}-cover.png">
+							<a href="blog/${post}.html">
+								<h2>${BLOGLIST[${ITERPOST}]}</h2>
+								<p>${BLOGHEADLINERS[$ITERPOST]}</p>
+							</a>
+						</div>
+EOM
+	ITERPOST=$(expr $ITERPOST + 1)
+done
+
+# Append posts cards to blog.html page
+sed -i '/<!-- projectCard -->/ {r '"content/blogtemp"'
+d;};' public/blog.html
+
 # Adjust paths
+sed -i 's|../static/main.css| style/main.css|' public/blog.html
+sed -i 's|../static/Jost.css| style/Jost.css|' public/blog.html
 sed -i 's|../static/main.css| style/main.css|' public/selected-works.html
 sed -i 's|../static/Jost.css| style/Jost.css|' public/selected-works.html
 sed -i 's|../static/main.css| style/main.css|' public/index.html
@@ -85,21 +128,29 @@ echo 'Adjusting file paths...'
 
 # Add social media menu
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
+d;};' public/blog.html
+sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/selected-works.html
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/index.html
 
 # Add main menu
 sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
+d;};' public/blog.html
+sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
 d;};' public/selected-works.html
 sed -i '/<!-- menuMainTemplate -->/ {r '"menus/menuMainTemplate"'
 d;};' public/index.html
 
 # Set dir level to the main menu's href (already in the correct level)
+sed -i 's|href="this.|href="|' public/blog.html
+# Set dir level to the main menu's href (already in the correct level)
 sed -i 's|href="this.|href="|' public/selected-works.html
 # Set dir level to the main menu's href (already in the correct level)
 sed -i 's|href="this.|href="|' public/index.html
 
+# Set current menu item
+sed -i 's|data-filename="blog"|class="selected"|' public/blog.html
 # Set current menu item
 sed -i 's|data-filename="selected-works"|class="selected"|' public/selected-works.html
 # Set current menu item
@@ -107,4 +158,5 @@ sed -i 's|data-filename="about"|class="selected"|' public/index.html
 
 # remove temporary file
 rm content/temp
+rm content/blogtemp
 echo -e 'Removing temp files...\n\nWebsite generated:\n  ⮡ 📂 ./public'
