@@ -12,6 +12,31 @@
 <!-- LB -->
 
     <item>
+    <title>Hello World!</title>
+    <guid>https://pintosilva.com//./public/blog/hello-world_converted.html</guid>
+    <link>https://pintosilva.com//./public/blog/hello-world_converted.html</link>
+    <pubDate>Mon, 05 Sep 2022 15:31:51 +0200</pubDate>
+    <description><![CDATA[
+<h1>Hello World!</h1>
+<h4>Hello, I'm a designer, I enjoy creating freely using free and open-source tools and more often than not I'm jumping between UX and graphic design.<a id="anchor002"></a></h4>
+<p>This blog is my attempt to log my findings, contributions or related events in the FOSS world. And since I work at <a href="https://www.collaboraoffice.com/">Collabora Productivity</a> – the driving force behind putting LibreOffice in the cloud – expect to see a lot of cool stuff regarding office tools.</p>
+<p>I hope to be clear, short and informal in all my posts.</p>
+<p><span>This post was first published in </span><a href="https://fediverse.blog/~/Pedro/hello-world">https://fediverse.blog/~/Pedro/hello-world</a></p>
+    ]]></description>
+    </item>
+    
+
+    <item>
+    <title>Project (Updated)</title>
+    <guid>https://pintosilva.com//./public/projects/project2_converted.html#220905133945</guid>
+    <link>https://pintosilva.com//./public/projects/project2_converted.html</link>
+    <pubDate>Mon, 05 Sep 2022 13:39:45 +0200</pubDate>
+    <description><![CDATA[./public/projects/project_converted.html
+    ]]></description>
+    </item>
+    
+
+    <item>
     <title>Project</title>
     <guid>https://pintosilva.com//./public/projects/project2_converted.html</guid>
     <link>https://pintosilva.com//./public/projects/project2_converted.html</link>

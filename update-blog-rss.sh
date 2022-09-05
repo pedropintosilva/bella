@@ -8,7 +8,7 @@ PURPLE='\033[0;35m'
 NC='\033[0m' # No Color
 
 FILENAME="$1"
-rssfile="projects.xml"
+rssfile="blog.xml"
 
 generate_rss_entrie () {
     echo -e "----------------------------\n${PURPLE}generate_rss_entrie\n"
@@ -25,7 +25,7 @@ generate_rss_entrie () {
     # So if you have a page with ^ in it, you'll have to change this to another
     # single byte character that isn't in the page like ~ or something.
 
-    link="$website/projects/$1"
+    link="$website/blog/$1"
     title="$(sed -n 's/<h1>\(.*\)<\/h1>/\1/ip' "$1")"
     echo -e "\nTitle: $title"
 
@@ -87,7 +87,7 @@ fi
 
 echo -e '\n'${BLUE}'Creating rss feed entries:
 \n----------------------------'
-find ./public/projects/ -maxdepth 1 -type f -iname "*converted.html" | cut -d '/' -f4 |
+find ./public/blog/ -maxdepth 1 -type f -iname "*converted.html" | cut -d '/' -f4 |
 while read line; do
   echo $line
   generate_rss_entrie $line
