@@ -26,33 +26,34 @@ generate_rss_entrie () {
     # single byte character that isn't in the page like ~ or something.
 
     link="$website/projects/$1"
-    title="$(sed -n 's/<h1>\(.*\)<\/h1>/\1/ip' "$1")"
+    title="$(sed -n 's/<h1>\(.*\)<\/h1>/\1/ip' "./public/projects/$1")"
     echo -e "\nTitle: $title"
 
     # Check and see if this page has already been added to the RSS feed.
-    if grep -q "<guid.*>$link</guid>" "$rssfile"; then
-        # Do this if it has been adding and we are updating it.
+    # if grep -q "<guid.*>$link</guid>" "$rssfile"; then
+    #     # Do this if it has been adding and we are updating it.
 
-        # If updating a file, we append the time/date to the GUID, as all GUIDs
-        # must be unique to validate an RSS feed. Even feed readers that follow
-        # GUIDs will still be lead to the same page with this.
-        guid="$link#$(date '+%y%m%d%H%M%S')"
-        title="$title (Updated)"
-        echo "Explain the nature of the update:"
-        read -r content
-        [ -z "$content" ] && content="New updates to $link"
-    else
+    #     # If updating a file, we append the time/date to the GUID, as all GUIDs
+    #     # must be unique to validate an RSS feed. Even feed readers that follow
+    #     # GUIDs will still be lead to the same page with this.
+    #     guid="$link#$(date '+%y%m%d%H%M%S')"
+    #     title="$title (Updated)"
+    #     echo "Explain the nature of the update:"
+    #     read -r content
+    #     [ -z "$content" ] && content="New updates to $link"
+    # else
         # Do this if it is a new page.
-        echo -e "\nNew page"
+        # echo -e "\nNew page"
         guid=$link
         # Get the page body content, excluding the nav and footer.
-        content="$(tr '\n' $replchar < "$1" | sed "
+        content="$(tr '\n' $replchar < "./public/projects/$1" | sed "
         s/.*<body>//
         s/<footer>.*<\/footer>//
         s/<nav>.*<\/nav>//
         s/<\/body>.*//
         " | tr -s $replchar '\n')"
-    fi
+       echo -e "$content\n"
+    # fi
 
     rssdate="$(LC_TIME=en_US date '+%a, %d %b %Y %H:%M:%S %z')"
 
@@ -84,7 +85,9 @@ if [[ ! $UPDATEALL =~ ^[Yy]$ ]]
 then
     exit 1
 fi
-
+echo -e '\n'${BLUE}'Copied template XML to public folder:'
+cp -p ${rssfile} public/${rssfile}
+rssfile="public/${rssfile}"
 echo -e '\n'${BLUE}'Creating rss feed entries:
 \n----------------------------'
 find ./public/projects/ -maxdepth 1 -type f -iname "*converted.html" | cut -d '/' -f4 |
@@ -92,6 +95,4 @@ while read line; do
   echo $line
   generate_rss_entrie $line
 done
-echo -e '\n'${BLUE}'Copied XML to public folder:'
-cp -p ${rssfile} public/${rssfile}
 echo -e "----------------------------\n${NC}"
