@@ -95,7 +95,7 @@ pre {
 .content--wrapper {
 	width: 100%;
 	display: grid;
-	grid-gap: 46px 10px;
+	grid-gap: 10px;
 	grid-template-columns: repeat(1);
 	grid-auto-rows: minmax(124px, auto);
 }
@@ -127,6 +127,7 @@ pre {
 @media only screen and (min-width: 1000px)   {
 	.content--wrapper {
 		grid-template-columns: repeat(4, calc(25% - 20px));
+		grid-auto-rows: minmax(198px, auto);
 	}
 }
 
