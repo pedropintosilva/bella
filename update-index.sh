@@ -35,7 +35,7 @@ echo -e '----------------------------\n'
 #  How many Projects?
 TOTALPROJECTS=$(find ./content/projects/ -maxdepth 1 -name  \*.odt | wc -l)
 echo -e ''${PURPLE}'Creating Projects ('${TOTALPROJECTS}'):\n----------------------------'
-find ./content/projects/ -maxdepth 1 -name  \*.odt | cut -d '/' -f4  | cut -d '.' -f1 |
+find ./content/projects/ -maxdepth 1 -name \*.odt -printf "%T+ %p\n" | sort -r | cut -d '/' -f4  | cut -d '.' -f1 |
 while read line; do
   ./generate.sh $line
 done
@@ -44,7 +44,7 @@ echo -e '----------------------------\n'
 #  How many Posts?
 TOTALPOSTS=$(find ./content/blog/ -maxdepth 1 -name  \*.odt | wc -l)
 echo -e ''${BLUE}'Creating Blog Posts ('${TOTALPOSTS}'):\n----------------------------'
-find ./content/blog/ -maxdepth 1 -name  \*.odt | cut -d '/' -f4  | cut -d '.' -f1 |
+find ./content/blog/ -maxdepth 1 -name \*.odt -printf "%T+ %p\n" | sort -r | cut -d '/' -f4  | cut -d '.' -f1 |
 while read line; do
   ./generate-post.sh $line
 done
