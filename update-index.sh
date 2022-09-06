@@ -76,9 +76,9 @@ do
 # Add '-' to '<<'  to ignore tabs like so: `cat >> content/temp <<- EOM`
 # but then you must use tabs, not spaces, for indentation in your code
 cat >> content/temp << EOM
-						<div class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png">
+						<div id="prjct-${LIST[${ITER}]}"class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png">
 							<a href="projects/${i}.html">
-								<h2>${LIST[${ITER}]}</h2>
+								<h2>${NAMES[${ITER}]}</h2>
 							</a>
 						</div>
 EOM
@@ -103,9 +103,9 @@ ITERPOST=0
 for post in "${BLOGLIST[@]}"
 do
 cat >> content/blogtemp << EOM
-						<div class="box box${ITERPOST} box--card post" style="background-image: url(blog/images/${post}-cover.png">
+						<div id="post-${BLOGLIST[${ITERPOST}]}" class="box box${ITERPOST} box--card post" style="background-image: url(blog/images/${post}-cover.png">
 							<a href="blog/${post}.html">
-								<h2>${BLOGLIST[${ITERPOST}]}</h2>
+								<h2>${BLOGNAMES[${ITERPOST}]}</h2>
 								<p>${BLOGHEADLINERS[$ITERPOST]}</p>
 							</a>
 						</div>
