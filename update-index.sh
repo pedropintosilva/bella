@@ -76,7 +76,7 @@ do
 # Add '-' to '<<'  to ignore tabs like so: `cat >> content/temp <<- EOM`
 # but then you must use tabs, not spaces, for indentation in your code
 cat >> content/temp << EOM
-						<div id="prjct-${LIST[${ITER}]}"class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png">
+						<div id="prjct-${LIST[${ITER}]}"class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png)">
 							<a href="projects/${i}.html">
 								<h2>${NAMES[${ITER}]}</h2>
 							</a>
