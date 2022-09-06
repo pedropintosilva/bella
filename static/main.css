@@ -183,6 +183,7 @@ pre {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-color: var(--bg-color-paper);
+	background-position: center;
 	border: 3px solid var(--color);
 	box-shadow: none;
 	padding: 0;
