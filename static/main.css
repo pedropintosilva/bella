@@ -2,8 +2,12 @@
 :root {
 	--bg-color: #eeeeee;
 	--bg-color-paper: white;
+	--bg-paper-overlay: linear-gradient(to right, #ffffffb8, var(--bg-color-paper) 2%, var(--bg-color-paper) 90%, #ffffff8a);
 	--bg-color-fake-white: #fafafa;
 	--bg-color-code: linear-gradient(to right, var(--bg-color-paper), var(--bg-color-paper) 20%, var(--bg-color));
+	--bg-color-strip: linear-gradient(to right, var(--bg-color-paper), #ffffffde 80%, #fff0);
+	--bg-color-identity: linear-gradient(to right, #eee0, #eee0, #eee0 54%, #eee), linear-gradient(#eee, #f8f8f8,#f8f8f8 84%, #eee);
+	--border-color-box: var(--bg-color-paper);
 	--color: #444444;
 	--color-light: #555555;
 	--color-lighter: #AEAEAE;
@@ -15,7 +19,23 @@
 	--heading-margin-bottom: 8px;
 }
 @media (prefers-color-scheme: dark) {
-	:root {}
+	:root {
+		--bg-color: #444;
+		--bg-color-paper: #222;
+		--bg-paper-overlay: linear-gradient(to right, #111, var(--bg-color-paper) 2%, var(--bg-color-paper) 90%, #111);
+		--bg-color-fake-white: #2a2a2a;
+		--bg-color-code: linear-gradient(to right, var(--bg-color-paper), var(--bg-color-paper) 20%, var(--bg-color));
+		--bg-color-strip: linear-gradient(to right, var(--bg-color-paper), #000000de 80%, #111);
+		--bg-color-identity: linear-gradient(to right, #1110, #44444452, #4444440d 54%, #444), linear-gradient(#444, #393939,#393939 84%, #444);
+		--border-color-box: var(--bg-color-paper);
+		--color: #eeeeee;
+		--color-light: #d3d3d3;
+		--color-lighter: #AEAEAE;
+		--color-paper: var(var(--bg-color-paper));
+		--color-primary: #cbe1ea;
+		--color-secondary: #8bb6c8;
+		--color-tertiary: #3591b9;
+	}
 }
 body {
 	margin: 0 40px;
@@ -146,7 +166,7 @@ pre {
 }
 
 .box.content.page {
-	background-image: linear-gradient(to right, #ffffffb8, var(--bg-color-paper) 2%, var(--bg-color-paper) 90%, #ffffff8a);
+	background-image: var(--bg-paper-overlay);
 	box-shadow: 1px 1px 2px 1px #00000021;
 	padding: 32px 138px 32px 108px;
 	box-sizing: border-box;
@@ -159,7 +179,7 @@ pre {
 .about .avatar {
 	background-size: cover;
 	border-radius: 0 0 50%;
-	box-shadow: 2px 2px 0 2px rgb(238, 238, 238), 3px 3px 0 3px var(--color-tertiary);
+	box-shadow: 2px 2px 0 2px var(--bg-color), 3px 3px 0 3px var(--color-tertiary);
 	margin: 0;
 	width: 128px;
 }
@@ -184,14 +204,14 @@ pre {
 	background-repeat: no-repeat;
 	background-color: var(--bg-color-paper);
 	background-position: center;
-	border: 3px solid var(--color);
+	border: 3px solid var(--border-color-box);
 	box-shadow: none;
 	padding: 0;
 }
 
 .box--card.post {
 	border: none;
-	border-top: 3px solid var(--color);
+	border-top: 3px solid var(--border-color-box);
 	max-height: 248px;
 	overflow: hidden
 }
@@ -210,7 +230,7 @@ pre {
 
 .box--card h2{
 	font-size: 16px;
-	background-image: linear-gradient(to right, var(--bg-color-paper), #ffffffde 80%, #fff0);
+	background-image: var(--bg-color-strip);
 	padding: 0 16px 0 4px;
 	color: var(--color);
 	position: absolute;
@@ -232,6 +252,7 @@ pre {
 }
 
 .box--card.post p {
+	color: var(--color);
 	font-size: 30px;
 	font-weight: 300;
 	padding-top: 0;
@@ -308,6 +329,7 @@ pre {
 }
 
 .header li {
+	color: var(--color-light);
 	list-style: none;
 }
 
@@ -317,7 +339,7 @@ pre {
 	margin: 0 auto;
 	overflow: hidden;
 	text-transform: uppercase;
-	background-image: linear-gradient(to right, #eee0, #eee0, #eee0 54%, #eee), linear-gradient(#eee, #f8f8f8,#f8f8f8 84%, #eee);
+	background-image: var(--bg-color-identity);
 }
 
 #site-title {
