@@ -431,7 +431,7 @@ pre {
 a {
 	color: var(--color-primary);
 	text-decoration-color: var(--color-secondary);
-	text-decoration-style: underline;
+	text-decoration-style: solid;
 }
 
 /*A link which has a destination*/
