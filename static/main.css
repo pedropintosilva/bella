@@ -11,7 +11,7 @@
 	--color: #444444;
 	--color-light: #555555;
 	--color-lighter: #AEAEAE;
-	--color-paper: var(var(--bg-color-paper));
+	--color-paper: var(--bg-color-paper);
 	--color-primary: #3591b9;
 	--color-secondary: #8bb6c8;
 	--color-tertiary: #cbe1ea;
@@ -31,7 +31,7 @@
 		--color: #eeeeee;
 		--color-light: #d3d3d3;
 		--color-lighter: #AEAEAE;
-		--color-paper: var(var(--bg-color-paper));
+		--color-paper: var(--bg-color-paper);
 		--color-primary: #cbe1ea;
 		--color-secondary: #8bb6c8;
 		--color-tertiary: #3591b9;
