@@ -8,7 +8,7 @@
 			<ul class="mobile" id="prime_nav" class="">
 				<li><a id="b" href="this.blog.html#b" data-filename="blog">Blog</a></li>
 				<li><a id="p" href="this.selected-works.html#p" data-filename="selected-works">Selected Works</a></li>
-				<li><a id="t" href="this.talks-and-lectures.html#l"  data-filename="talks-and-lectures">Talks and Lectures</a></li>
+				<li><a id="t" href="this.talks-and-lectures.html#t"  data-filename="talks-and-lectures">Talks and Lectures</a></li>
 				<li><a id="bk" href="this.bookmarks.html#bk" data-filename="bookmarks">Bookmarks</a></li>
 				<li><a id="a" href="this.index.html#a" data-filename="about">About Pedro</a></li>
 			</ul>
