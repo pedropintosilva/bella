@@ -6,7 +6,7 @@
 <!-- rssFeedTemplate -->
 		<link rel="stylesheet" type="text/css" href="../static/Jost.css" charset="utf-8" />
 		<link rel="stylesheet" type="text/css" href="../static/main.css">
-		<title></title>
+		<title><!-- currentPage --> ⋅ Pedro Pinto Silva</title>
 	</head>
 	<body class="about">
 		<div class="wrapper">

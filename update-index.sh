@@ -149,6 +149,12 @@ sed -i 's|href="this.|href="|' public/selected-works.html
 # Set dir level to the main menu's href (already in the correct level)
 sed -i 's|href="this.|href="|' public/index.html
 
+# Set page title
+sed -i 's|<!-- currentPage -->|blog|' public/blog.html
+sed -i 's|<!-- currentPage -->|Selected Works|' public/selected-works.html
+sed -i 's|<!-- currentPage -->|About|' public/index.html
+
+
 # Set current menu item
 sed -i 's|data-filename="blog"|class="selected"|' public/blog.html
 # Set current menu item

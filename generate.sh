@@ -95,5 +95,8 @@ d;};' public/projects/$FILENAME.html
 # Set dir level to the main menu's href (one level up)
 sed -i 's|href="this.|href="../|' public/projects/$FILENAME.html
 
+# Set page title
+sed -i 's|<!-- currentPage -->|Selected Works: '"$TITLE"'|' public/projects/$FILENAME.html
+
 echo "👾 $(tail -n 1 content/projects/list-names)"
 echo '  ⮡ public/projects/'$FILENAME'.html'
