@@ -71,8 +71,8 @@ sed -i 's|../static/Jost.css|../style/Jost.css|' public/blog/$FILENAME.html
 sed -i '/<!-- content -->/ {r '"public/blog/${FILENAME}_temp.html"'
 d;};' public/blog/$FILENAME.html
 
-# Add additional class to content box: 'page'
-sed -i 's|box content|box content page|' public/blog/$FILENAME.html
+# Add additional class to content box: 'page' and 'post'
+sed -i 's|box content|box content page post|' public/blog/$FILENAME.html
 
 # Append project to blog list
 echo $FILENAME >> content/blog/list-ids
