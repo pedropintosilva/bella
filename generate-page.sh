@@ -80,6 +80,9 @@ d;};' public/$FILENAME.html
 # Set dir level to the main menu's href (already in the correct level)
 sed -i 's|href="this.|href="|' public/$FILENAME.html
 
+# Set page title
+sed -i 's|<!-- currentPage -->|'"$TITLE"'|' public/$FILENAME.html
+
 # Set current menu item
 TITLE=$(echo $TITLE | tr "-" " ")
 echo -e '📘'$TITLE'\n  ⮡ public/'$FILENAME'.html'

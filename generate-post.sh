@@ -94,5 +94,8 @@ d;};' public/blog/$FILENAME.html
 # Set dir level to the main menu's href (one level up)
 sed -i 's|href="this.|href="../|' public/blog/$FILENAME.html
 
+# Set page title
+sed -i 's|<!-- currentPage -->|Blog: '"$TITLE"'|' public/blog/$FILENAME.html
+
 echo "🗣️ $(tail -n 1 content/blog/list-names)"
 echo '  ⮡ public/blog/'$FILENAME'.html'
