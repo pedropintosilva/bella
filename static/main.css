@@ -65,10 +65,22 @@ h4 {
 	margin-bottom: var(--heading-margin-bottom);
 }
 pre {
+	font-family: 'Jost';
 	font-size: 13px;
 	background-image: var(--bg-color-code);
 	padding: 13px;
 	border-radius: 8px;
+}
+
+.page.post pre:first-child {
+	text-align: right;
+	float: right;
+	margin-right: -138px;
+	border-radius: 0;
+	padding: 4px 8px;
+	font-family: 'Jost';
+	font-weight: 800;
+	color: var(--color-light);
 }
 
 .sidebar {
@@ -245,10 +257,23 @@ pre {
 .box--card.post h2{
 	font-size: inherit;
 	position: static;
+	margin-top: 4px;
+	padding: 0 4px;
 }
 
 .box--card.post:hover h2 {
 	color: var(--color-primary);
+}
+
+.box--card.post a > span {
+	display: block;
+	font-size: 14px;
+	font-weight: 400;
+	text-align: center;
+	border-bottom: 1px solid var(--bg-color);
+	color: var(--color-light);
+	padding-bottom: 4px;
+	margin-bottom: 4px;
 }
 
 .box--card.post p {
@@ -422,6 +447,11 @@ pre {
 		padding-inline-end: 0;
 		margin-inline-start: 0;
 		white-space: pre-wrap;
+	}
+	.page.post pre:first-child {
+		margin-right: initial;
+		clear: right;
+		border-radius: 8px;
 	}
 	.box.content img {
 		max-width: 100%;

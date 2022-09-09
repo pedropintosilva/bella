@@ -44,7 +44,8 @@ echo -e '----------------------------\n'
 #  How many Posts?
 TOTALPOSTS=$(find ./content/blog/ -maxdepth 1 -name  \*.odt | wc -l)
 echo -e ''${BLUE}'Creating Blog Posts ('${TOTALPOSTS}'):\n----------------------------'
-find ./content/blog/ -maxdepth 1 -name \*.odt -printf "%T+ %p\n" | sort -r | cut -d '/' -f4  | cut -d '.' -f1 |
+# Posts odt files are already named with dates as prefix. Example: 2019-11-18_hello-world.odt
+find ./content/blog/ -maxdepth 1 -name \*.odt | cut -d '/' -f4  | cut -d '.' -f1  | sort -r |
 while read line; do
   ./generate-post.sh $line
 done
@@ -102,9 +103,11 @@ echo 'Updating blog with latest posts cards...'
 ITERPOST=0
 for post in "${BLOGLIST[@]}"
 do
+POSTDATE=$(echo ${post} | cut -d '_' -f1)
 cat >> content/blogtemp << EOM
 						<div id="post-${BLOGLIST[${ITERPOST}]}" class="box box${ITERPOST} box--card post" style="background-image: url(blog/images/${post}-cover.png">
 							<a href="blog/${post}.html">
+								<span>${POSTDATE}</span>
 								<h2>${BLOGNAMES[${ITERPOST}]}</h2>
 								<p>${BLOGHEADLINERS[$ITERPOST]}</p>
 							</a>
