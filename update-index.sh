@@ -58,8 +58,8 @@ cp -p content/cardListTemplate public/blog.html
 cp -p content/aboutPageTemplate public/index.html
 # Copy styles and fonts
 cp -p static/main.css public/style/main.css
-cp -p static/Jost.css public/style/Jost.css
-cp -p static/Jost-* public/style/
+cp -p static/fonts.css public/style/fonts.css
+cp -p static/*.ttf public/style/
 
 # Temp file
 touch content/temp
@@ -122,16 +122,16 @@ d;};' public/blog.html
 
 # Adjust paths
 sed -i 's|../static/main.css| style/main.css|' public/blog.html
-sed -i 's|../static/Jost.css| style/Jost.css|' public/blog.html
+sed -i 's|../static/fonts.css| style/fonts.css|' public/blog.html
 sed -i 's|../static/main.css| style/main.css|' public/selected-works.html
-sed -i 's|../static/Jost.css| style/Jost.css|' public/selected-works.html
+sed -i 's|../static/fonts.css| style/fonts.css|' public/selected-works.html
 sed -i 's|../static/main.css| style/main.css|' public/index.html
-sed -i 's|../static/Jost.css| style/Jost.css|' public/index.html
+sed -i 's|../static/fonts.css| style/fonts.css|' public/index.html
 echo 'Adjusting file paths...'
 
 # Add social media menu
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
-d;};' public/blog.html
+d;};' public/blog.htmlo
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/selected-works.html
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
