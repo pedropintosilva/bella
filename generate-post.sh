@@ -21,7 +21,7 @@ REMOVE="$2"
 
 # Copy static content
 cp -p static/main.css public/style/main.css
-cp -p static/Jost.css public/style/Jost.css
+cp -p static/fonts.css public/style/fonts.css
 
 # Copy post's images
 [ ! -d public/blog ] && mkdir -p public/blog/
@@ -64,7 +64,7 @@ sed -i '$d' public/blog/"${FILENAME}_temp".html
 
 # Adjust paths
 sed -i 's|../static/main.css|../style/main.css|' public/blog/$FILENAME.html
-sed -i 's|../static/Jost.css|../style/Jost.css|' public/blog/$FILENAME.html
+sed -i 's|../static/fonts.css|../style/fonts.css|' public/blog/$FILENAME.html
 
 # Modify content/blog/$FILENAME.html
 # and insert contents from index template before and after

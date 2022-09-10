@@ -65,14 +65,17 @@ h4 {
 	margin-bottom: var(--heading-margin-bottom);
 }
 pre {
-	font-family: 'Jost';
-	font-size: 13px;
+	font-family: 'Monoid';
+	font-size: 12px;
+	line-height: 22px;
 	background-image: var(--bg-color-code);
 	padding: 13px;
 	border-radius: 8px;
+	white-space: pre-wrap;
 }
 
 .page.post pre:first-child {
+	font-family: 'Jost';
 	text-align: right;
 	float: right;
 	margin-right: -138px;

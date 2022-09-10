@@ -1,4 +1,13 @@
 @font-face {
+	font-family: 'Monoid';
+	src: url('Monoid-Regular.ttf') format('truetype');
+	font-weight: 100;
+	font-style: normal;
+	font-display: swap;
+	-webkit-font-feature-settings: "liga" 1, "calt" 1;
+	font-feature-settings: "liga" 1, "calt" 1;
+}
+@font-face {
 	font-family: 'Jost';
 	src: url('Jost-100.ttf') format('truetype');
 	font-weight: 100;
