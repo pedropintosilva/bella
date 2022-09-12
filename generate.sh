@@ -40,6 +40,9 @@ sed -i 's|src="Pictures/|src="images/|' public/projects/"${FILENAME}_converted".
 # Go up one level in directory when placing img tags sources
 sed -i 's|src="../images/|src="images/|' public/projects/"${FILENAME}_converted".html
 
+# Add frames to images that require that style
+sed -i 's|frmd.png"|frmd.png" class="frmd"|' public/projects/"${FILENAME}_converted".html
+
 # Remove anchors from headings
 sed -i -e 's|<a id="anchor001"></a>||' public/projects/"${FILENAME}_converted".html
 
