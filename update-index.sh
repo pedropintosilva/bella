@@ -131,7 +131,7 @@ echo 'Adjusting file paths...'
 
 # Add social media menu
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
-d;};' public/blog.htmlo
+d;};' public/blog.html
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
 d;};' public/selected-works.html
 sed -i '/<!-- menuSocialTemplate -->/ {r '"menus/menuSocialTemplate"'
