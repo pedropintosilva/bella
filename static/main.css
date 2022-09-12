@@ -37,6 +37,22 @@
 		--color-tertiary: #3591b9;
 	}
 }
+a.skip-main {
+	z-index: -999;
+	background-color: hsla(0,0%,100%,.9);
+	font-family: 'Monoid';
+	top: -20em;
+	width: 100%;
+	padding: .5rem;
+	position: absolute;
+	right: 0;
+	text-align: center;
+}
+a.skip-main:focus, a.skip-main:active {
+	left: auto;
+	top: auto;
+	z-index: 999;
+}
 body {
 	margin: 0 40px;
 	background-color: var(--bg-color);

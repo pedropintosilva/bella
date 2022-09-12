@@ -23,7 +23,7 @@
 			</div>
 <!-- menuMainTemplate -->
 		</div>
-		<div class="box content">
+		<div id="content" class="box content">
 				<div class="content--wrapper">
 					<!-- projectCard -->
 				</div>
