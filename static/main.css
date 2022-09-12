@@ -207,6 +207,10 @@ pre {
 	max-width: 500px;
 }
 
+.box.content.page img {
+	max-width: 100%;
+}
+
 .content.page img.frmd {
 	border-radius: 4px;
 	box-shadow: 0 0 1px 0 var(--color-light), 0 0 1px 2px var(--bg-color);
