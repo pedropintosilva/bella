@@ -456,7 +456,7 @@ pre {
 		margin: 0;
 	}
 	.box.content.page {
-		padding: 0 1em;
+		padding: 10px;
 		font-size: 110%;
 	}
 	.sidebar {
