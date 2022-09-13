@@ -54,8 +54,8 @@ generate_rss_entrie () {
         " | tr -s $replchar '\n')"
         echo -e "$content\n"
     # fi
-
-    rssdate="$(LC_TIME=en_US date '+%a, %d %b %Y %H:%M:%S %z')"
+    # date comes with filename
+    rssdate="$(echo $1 | cut -d '_' -f1)"
 
     # Eh, I'm a brainlet and I'm not sure how to elegantly add in the content to
     # the RSS feed without first writing it out to a file. This is because if we
