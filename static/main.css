@@ -475,6 +475,7 @@ pre {
 		padding-inline-end: 0;
 		margin-inline-start: 0;
 		white-space: pre-wrap;
+		overflow-wrap: anywhere;
 	}
 	.page.post pre:first-child {
 		margin-right: initial;
