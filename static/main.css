@@ -468,6 +468,9 @@ pre {
 	.mobile {
 		display: initial !important;
 	}
+	.mobile.d-flex {
+		display: flex !important;
+	}
 	.section--card {
 		width: auto;
 	}
