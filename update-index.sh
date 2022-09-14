@@ -78,7 +78,10 @@ do
 # but then you must use tabs, not spaces, for indentation in your code
 cat >> content/temp << EOM
 						<div id="prjct-${LIST[${ITER}]}"class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png)">
-							<a href="projects/${i}.html">
+							<a class="mobile d-flex" href="projects/${i}.html#content">
+								<h2>${NAMES[${ITER}]}</h2>
+							</a>
+							<a class="mobile-hidden" href="projects/${i}.html">
 								<h2>${NAMES[${ITER}]}</h2>
 							</a>
 						</div>
@@ -106,7 +109,12 @@ do
 POSTDATE=$(echo ${post} | cut -d '_' -f1)
 cat >> content/blogtemp << EOM
 						<div id="post-${BLOGLIST[${ITERPOST}]}" class="box box${ITERPOST} box--card post" style="background-image: url(blog/images/${post}-cover.png">
-							<a href="blog/${post}.html">
+							<a class="mobile d-flex" href="blog/${post}.html#content">
+								<span>${POSTDATE}</span>
+								<h2>${BLOGNAMES[${ITERPOST}]}</h2>
+								<p>${BLOGHEADLINERS[$ITERPOST]}</p>
+							</a>
+							<a class="mobile-hidden" href="blog/${post}.html">
 								<span>${POSTDATE}</span>
 								<h2>${BLOGNAMES[${ITERPOST}]}</h2>
 								<p>${BLOGHEADLINERS[$ITERPOST]}</p>
