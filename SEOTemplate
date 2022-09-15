@@ -1,0 +1,16 @@
+<meta name="generator" content="Bella" />
+<meta property="og:title" content="this.title" />
+<meta name="author" content="Pedro Pinto Silva" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:description" content="this.description" />
+<link rel="canonical" href="https://pintosilva.com/this.html" />
+<meta property="og:url" content="https://pintosilva.com/this.html" />
+<meta property="og:site_name" content="Pedro Pinto Silva" />
+<meta property="og:image" content="https://pintosilva.com/this.image" />
+<meta property="og:type" content="this.type" />
+<!-- published_time -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta property="twitter:image" content="https://pintosilva.com/this.image" />
+<meta property="twitter:title" content="this.title" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebSite","author":{"@type":"Person","name":"Pedro Pinto Silva"},"description":"this.description","headline":"this.title","image":"https://pintosilva.com/this.image","name":"Pedro Pinto Silva","publisher":{"@type":"Organization","logo":{"@type":"ImageObject","url":"https://pintosilva.com/this.image"},"name":"Pedro Pinto Silva"},"sameAs":["https://pedropintosilva.com","https://github.com/pedropintosilva","https://https://twitter.com/PedroPS"],"url":"https://pintosilva.com/this.html"}</script>

@@ -101,5 +101,19 @@ sed -i 's|href="this.|href="../|' public/projects/$FILENAME.html
 # Set page title
 sed -i 's|<!-- currentPage -->|Selected Works: '"$TITLE"'|' public/projects/$FILENAME.html
 
+# Add SEO bits
+sed -i '/<!-- SEOTemplate -->/ {r '"SEOTemplate"'
+d;};' public/projects/$FILENAME.html
+# Add SEO bits: set URLs
+sed -i 's|this.html|projects/'"$FILENAME"'.html|' public/projects/$FILENAME.html
+# Add SEO bits: set title
+sed -i 's|this.title|'"$TITLE"'|' public/projects/$FILENAME.html
+# Add SEO bits: set image
+sed -i 's|this.image|'"projects/images/$FILENAME-cover.png"'|' public/projects/$FILENAME.html
+# Add SEO bits: set description
+sed -i 's|this.description|'"$TITLE"': Project from Pedro Pinto Silva|' public/projects/$FILENAME.html
+# Add SEO bits: set og type
+sed -i 's|this.type|article|' public/projects/$FILENAME.html
+
 echo "👾 $(tail -n 1 content/projects/list-names)"
 echo '  ⮡ public/projects/'$FILENAME'.html'

@@ -165,6 +165,45 @@ sed -i 's|<!-- currentPage -->|blog|' public/blog.html
 sed -i 's|<!-- currentPage -->|Selected Works|' public/selected-works.html
 sed -i 's|<!-- currentPage -->|About|' public/index.html
 
+# Add SEO bits for blog page ---------------------------
+sed -i '/<!-- SEOTemplate -->/ {r '"SEOTemplate"'
+d;};' public/blog.html
+# Add SEO bits: set URLs
+sed -i 's|this.html|blog.html|' public/blog.html
+# Add SEO bits: set title
+sed -i 's|this.title|Blog ⋅ Pedro Pinto Silva|' public/blog.html
+# Add SEO bits: set image
+sed -i 's|this.image|images/avatar.jpeg|' public/blog.html
+# Add SEO bits: set description
+sed -i 's|this.description|Blog ⋅ Pedro Pinto Silva|' public/blog.html
+# Add SEO bits: set og type
+sed -i 's|this.type|website|' public/blog.html
+# Add SEO bits for selected works page -------------------
+sed -i '/<!-- SEOTemplate -->/ {r '"SEOTemplate"'
+d;};' public/selected-works.html
+# Add SEO bits: set URLs
+sed -i 's|this.html|selected-works.html|' public/selected-works.html
+# Add SEO bits: set title
+sed -i 's|this.title|Selected works ⋅ Pedro Pinto Silva|' public/selected-works.html
+# Add SEO bits: set image
+sed -i 's|this.image|images/avatar.jpeg|' public/selected-works.html
+# Add SEO bits: set description
+sed -i 's|this.description|Selected works ⋅ Pedro Pinto Silva|' public/selected-works.html
+# Add SEO bits: set og type
+sed -i 's|this.type|website|' public/selected-works.html
+# Add SEO bits for homepage -------------------------------
+sed -i '/<!-- SEOTemplate -->/ {r '"SEOTemplate"'
+d;};' public/index.html
+# Add SEO bits: set URLs
+sed -i 's|this.html|index.html|' public/index.html
+# Add SEO bits: set title
+sed -i 's|this.title|About ⋅ Pedro Pinto Silva|' public/index.html
+# Add SEO bits: set image
+sed -i 's|this.image|images/avatar.jpeg|' public/index.html
+# Add SEO bits: set description
+sed -i 's|this.description|About ⋅ Pedro Pinto Silva|' public/index.html
+# Add SEO bits: set og type
+sed -i 's|this.type|website|' public/index.html
 
 # Set current menu item
 sed -i 's|data-filename="blog"|class="selected"|' public/blog.html

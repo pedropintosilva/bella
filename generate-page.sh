@@ -83,6 +83,20 @@ sed -i 's|href="this.|href="|' public/$FILENAME.html
 # Set page title
 sed -i 's|<!-- currentPage -->|'"$TITLE"'|' public/$FILENAME.html
 
+# Add SEO bits
+sed -i '/<!-- SEOTemplate -->/ {r '"SEOTemplate"'
+d;};' public/$FILENAME.html
+# Add SEO bits: set URLs
+sed -i 's|this.html|'"$FILENAME"'.html|' public/$FILENAME.html
+# Add SEO bits: set title
+sed -i 's|this.title|'"$TITLE"'|' public/$FILENAME.html
+# Add SEO bits: set image
+sed -i 's|this.image|images/avatar.jpeg|' public/$FILENAME.html
+# Add SEO bits: set description
+sed -i 's|this.description|'"$TITLE"': Pedro Pinto Silva|' public/$FILENAME.html
+# Add SEO bits: set og type
+sed -i 's|this.type|website|' public/$FILENAME.html
+
 # Set current menu item
 TITLE=$(echo $TITLE | tr "-" " ")
 echo -e '📘'$TITLE'\n  ⮡ public/'$FILENAME'.html'
