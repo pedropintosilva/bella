@@ -97,5 +97,23 @@ sed -i 's|href="this.|href="../|' public/blog/$FILENAME.html
 # Set page title
 sed -i 's|<!-- currentPage -->|Blog: '"$TITLE"'|' public/blog/$FILENAME.html
 
+# Add SEO bits
+sed -i '/<!-- SEOTemplate -->/ {r '"SEOTemplate"'
+d;};' public/blog/$FILENAME.html
+# Add SEO bits: set URLs
+sed -i 's|this.html|blog/'"$FILENAME"'.html|' public/blog/$FILENAME.html
+# Add SEO bits: set title
+sed -i 's|this.title|'"$TITLE"'|' public/blog/$FILENAME.html
+# Add SEO bits: set image
+sed -i 's|this.image|images/avatar.jpeg|' public/blog/$FILENAME.html
+# Add SEO bits: set description
+sed -i 's|this.description|'"$TITLE"' ⋅ Blog article from Pedro Pinto Silva|' public/blog/$FILENAME.html
+# Add SEO bits: set og type
+sed -i 's|this.type|article|' public/blog/$FILENAME.html
+# Add SEO published time
+PUBDATE=$(echo ${FILENAME} | cut -d '_' -f1)
+sed -i 's|<!-- published_time -->|<meta property="article:published_time" content="'"$PUBDATE"'" />|' public/blog/$FILENAME.html
+
+
 echo "🗣️ $(tail -n 1 content/blog/list-names)"
 echo '  ⮡ public/blog/'$FILENAME'.html'
