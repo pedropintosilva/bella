@@ -430,7 +430,6 @@ pre {
 
 @media only screen and ((max-width: 800px) or (max-device-width: 800px)) {
 	#prime_nav {
-		font-size: 11px;
 		display: grid;
 		grid-template-columns: auto auto auto;
 		margin-top: 3em;
@@ -452,6 +451,9 @@ pre {
 }
 
 @media only screen and (max-width: 480px), only screen and (max-device-width: 480px) {
+	#prime_nav {
+		padding: 1em;
+	}
 	body {
 		margin: 0;
 	}
