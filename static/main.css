@@ -239,6 +239,21 @@ pre {
 .about h4:hover em::after {
 	content: '!';
 }
+.about h4:hover span {
+	color: var(--color-lighter);
+}
+.about h4:hover span::after {
+	content: '+';
+	font-weight: 300;
+	font-style: normal;
+	text-decoration: none;
+	position: relative;
+	margin-left: -27px;
+	color: var(--color-primary);
+	left: -23px;
+	background: var(--bg-color);
+	box-shadow: 8px 0 1px 4px var(--bg-color), -8px 0 1px 4px var(--bg-color);
+}
 .box--card {
 	background-size: cover;
 	background-repeat: no-repeat;
