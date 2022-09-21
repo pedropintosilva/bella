@@ -26,7 +26,7 @@
 		<div id="content" class="box content sections">
 		  <section class="section--card">
 			<img src="images/avatar.jpeg" alt="Me" class="avatar" width="128" height="128">
-			<h4><em>Hello</em><br>I’m Pedro, and I've been working in graphic design for 10 years now. I enjoy any form of discourse and I’m into libre software. </h4>
+			<h4><em>Hello</em><br>I’m Pedro, and I've been working in graphic design for 10 years <span>now</span>. I enjoy any form of discourse and I’m into libre software. </h4>
 		  </section>
 		  <section class="section--card">
 		    <h1>Work</h1>
