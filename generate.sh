@@ -34,34 +34,37 @@ cp -frp content/projects/template -T public/projects/$FILENAME.html
 # CONVERT With python, --plain to get without css
 odf2xhtml --plain content/projects/$FILENAME.odt > public/projects/"${FILENAME}_converted".html
 
+# Remove any spans
+sed -i -e 's|<span>||g;s|</span>||g' public/projects/"${FILENAME}_converted".html
+
 # Replace LO pictures with images
-sed -i 's|src="Pictures/|src="images/|' public/projects/"${FILENAME}_converted".html
+sed -i 's|src="Pictures/|src="images/|g' public/projects/"${FILENAME}_converted".html
 
 # Go up one level in directory when placing img tags sources
-sed -i 's|src="../images/|src="images/|' public/projects/"${FILENAME}_converted".html
+sed -i 's|src="../images/|src="images/|g' public/projects/"${FILENAME}_converted".html
 
 # Add frames to images that require that style
-sed -i 's|frmd.png"|frmd.png" class="frmd"|' public/projects/"${FILENAME}_converted".html
+sed -i 's|frmd.png"|frmd.png" class="frmd"|g' public/projects/"${FILENAME}_converted".html
 
 # Remove anchors from headings
-sed -i -e 's|<a id="anchor001"></a>||' public/projects/"${FILENAME}_converted".html
+sed -i -e 's|<a id="anchor001"></a>||g' public/projects/"${FILENAME}_converted".html
 
 # Remove any div tags
-sed -i -e 's|<div>||;s|</div>||' public/projects/"${FILENAME}_converted".html
+sed -i -e 's|<div>||;s|</div>||g' public/projects/"${FILENAME}_converted".html
 
 # Get project's title
 TITLE=$(perl -ln0e '$,="\n";print /(?<=<h1>).*?(?=<\/h1)/sg' public/projects/"${FILENAME}_converted".html)
 echo "Title: "${TITLE}
 # Add title from h1. Converted html is used for RSS feed (so it's just the content of the page)
-sed -i -e 's|<title></title>|<title>'${TITLE}'</title>|' public/projects/"${FILENAME}_converted".html
+sed -i 's|<title></title>|<title>'"$TITLE"'</title>|' public/projects/"${FILENAME}_converted".html
 # Add title from h1, converted html to final html is used for RSS feed (so it's just the content of the page)
-sed -i -e 's|<title></title>|<title>'${TITLE}'</title>|' public/projects/$FILENAME.html
+sed -i -e 's|<title></title>|<title>'"$TITLE"'</title>|' public/projects/$FILENAME.html
 
 # Create temporary converted file where only inner html is kept
 # (meta, html and body tags are removed)
 cp -frp public/projects/"${FILENAME}_converted".html -T public/projects/"${FILENAME}_temp".html
 # remove first 7 lines:
-sed -i -e '1,7d' public/projects/"${FILENAME}_temp".html
+sed -i '1,7d' public/projects/"${FILENAME}_temp".html
 # remove last 2 lines
 sed -i '$d' public/projects/"${FILENAME}_temp".html
 sed -i '$d' public/projects/"${FILENAME}_temp".html
