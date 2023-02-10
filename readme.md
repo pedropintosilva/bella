@@ -1,4 +1,4 @@
-[🔗 SEE IT IN ACTION 👉](https://pedropintosilva.github.io/bella/)
+[🔗 SEE IT IN ACTION 👉](https://pintosilva.com/)
 
 [⚓ JUMP TO REQUIREMENTS 👇](https://github.com/pedropintosilva/bella/tree/master#installation-requirements)
 
@@ -62,4 +62,3 @@ Using python to get minimal results (without CSS) so we can have web content fol
 * ``Create environment python3 -m venv ./venv``
 * ``Activate it source ./venv/bin/activate``
 *  ``pip install odfpy``
-
