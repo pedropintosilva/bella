@@ -33,31 +33,34 @@ cp -frp content/blog/template -T public/blog/$FILENAME.html
 # CONVERT With python, --plain to get without css
 odf2xhtml --plain content/blog/$FILENAME.odt > public/blog/"${FILENAME}_converted".html
 
+# Remove any spans
+sed -i -e 's|<span>||g;s|</span>||g' public/blog/"${FILENAME}_converted".html
+
 # Replace LO pictures with images
-sed -i 's|src="Pictures/|src="images/|' public/blog/"${FILENAME}_converted".html
+sed -i 's|src="Pictures/|src="images/|g' public/blog/"${FILENAME}_converted".html
 
 # Go up one level in directory when placing img tags sources
-sed -i 's|src="../images/|src="images/|' public/blog/"${FILENAME}_converted".html
+sed -i 's|src="../images/|src="images/|g' public/blog/"${FILENAME}_converted".html
 
 # Remove anchors from headings
-sed -i -e 's|<a id="anchor001"></a>||' public/blog/"${FILENAME}_converted".html
+sed -i 's|<a id="anchor001"></a>||g' public/blog/"${FILENAME}_converted".html
 
 # Remove any div tags
-sed -i -e 's|<div>||;s|</div>||' public/blog/"${FILENAME}_converted".html
+sed -i -e 's|<div>||g;s|</div>||g' public/blog/"${FILENAME}_converted".html
 
 # Get project's title
 TITLE=$(perl -ln0e '$,="\n";print /(?<=<h1>).*?(?=<\/h1)/sg' public/blog/"${FILENAME}_converted".html)
 echo "Title: "${TITLE}
 # Add title from h1. Converted html is used for RSS feed (so it's just the content of the page)
-sed -i -e 's|<title></title>|<title>'${TITLE}'</title>|' public/blog/"${FILENAME}_converted".html
+sed -i 's|<title></title>|<title>'"$TITLE"'</title>|' public/blog/"${FILENAME}_converted".html
 # Add title from h1, converted html to final html is used for RSS feed (so it's just the content of the page)
-sed -i -e 's|<title></title>|<title>'${TITLE}'</title>|' public/blog/$FILENAME.html
+sed -i 's|<title></title>|<title>'"$TITLE"'</title>|' public/blog/$FILENAME.html
 
 # Create temporary converted file where only inner html is kept
 # (meta, html and body tags are removed)
 cp -frp public/blog/"${FILENAME}_converted".html -T public/blog/"${FILENAME}_temp".html
 # remove first 7 lines:
-sed -i -e '1,7d' public/blog/"${FILENAME}_temp".html
+sed -i '1,7d' public/blog/"${FILENAME}_temp".html
 # remove last 2 lines
 sed -i '$d' public/blog/"${FILENAME}_temp".html
 sed -i '$d' public/blog/"${FILENAME}_temp".html
