@@ -509,6 +509,10 @@ pre {
 	.box.content img {
 		max-width: 100%;
 	}
+	.box--card {
+		grid-column: span 2 !important;
+		grid-row: span 2 !important;
+	}
 }
 
 a {

@@ -67,6 +67,7 @@ touch content/temp
 # Create array with projectslist
 mapfile -t LIST < content/projects/list-ids
 mapfile -t NAMES < content/projects/list-names
+mapfile -t GRIDSPANS < content/projects/list-grid-spans
 
 echo 'Updating homepage with latest project cards...'
 # Update Homepage
@@ -77,7 +78,7 @@ do
 # Add '-' to '<<'  to ignore tabs like so: `cat >> content/temp <<- EOM`
 # but then you must use tabs, not spaces, for indentation in your code
 cat >> content/temp << EOM
-						<div id="prjct-${LIST[${ITER}]}"class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png)">
+						<div id="prjct-${LIST[${ITER}]}"class="box box${ITER} box--card" style="background-image: url(projects/images/${i}-cover.png); ${GRIDSPANS[${ITER}]}">
 							<a class="mobile d-flex" href="projects/${i}.html#content">
 								<h2>${NAMES[${ITER}]}</h2>
 							</a>
