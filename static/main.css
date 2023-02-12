@@ -167,6 +167,9 @@ pre {
 		max-width: 75%;
 		min-width: 788px;
 	}
+	#prime_nav {
+		grid-template-columns: auto !important;
+	}
 }
 
 @media only screen and (min-width: 900px)   {
