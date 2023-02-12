@@ -272,9 +272,10 @@ pre {
 }
 
 .box--card:hover {
-	box-shadow: inset -8px 10px 0 2px var(--bg-color-paper), inset -16px 20px 0 2px var(--color-tertiary), inset -24px 32px 0 2px var(--color-primary);
+	box-shadow: -8px 8px 0 2px var(--color-tertiary);
 	border-bottom-right-radius: 32px;
 	border-color: var(--color-primary);
+	transition: all 0.3s ease-in-out;
 }
 
 .box--card.post:hover {
