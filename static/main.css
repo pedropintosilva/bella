@@ -239,7 +239,7 @@ pre {
 .about h4:hover span {
 	color: var(--color-lighter);
 }
-.about h4:hover span::after {
+.about h4 span::after {
 	content: '+';
 	font-weight: 300;
 	font-style: normal;
