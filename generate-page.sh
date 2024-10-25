@@ -36,6 +36,9 @@ cp -frp content/pageTemplate -T public/$FILENAME.html
 # CONVERT With python, --plain to get without css
 odf2xhtml --plain content/$FILENAME.odt > public/"${FILENAME}_converted".html
 
+# Replace TOC (Table of contents), Index uggly bullets
+sed -i 's|<span>•</span>||' public/"${FILENAME}_converted".html
+
 # Replace LO pictures with images
 sed -i 's|src="Pictures/|src="images/|' public/"${FILENAME}_converted".html
 
