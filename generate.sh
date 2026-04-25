@@ -70,8 +70,8 @@ sed -i '$d' public/projects/"${FILENAME}_temp".html
 sed -i '$d' public/projects/"${FILENAME}_temp".html
 
 # Adjust paths
-sed -i 's|../static/main.css|../style/main.css|' public/projects/$FILENAME.html
-sed -i 's|../static/fonts.css|../style/fonts.css|' public/projects/$FILENAME.html
+# Rewrite ../static/ -> ../style/ for every asset reference (CSS, fonts, ...)
+sed -i 's|../static/|../style/|g' public/projects/$FILENAME.html
 
 # Modify content/projects/$FILENAME.html
 # and insert contents from index template before and after

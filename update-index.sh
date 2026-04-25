@@ -55,7 +55,7 @@ cp -p content/aboutPageTemplate public/index.html
 # Copy styles and fonts
 cp -p static/main.css public/style/main.css
 cp -p static/fonts.css public/style/fonts.css
-cp -p static/*.ttf public/style/
+cp -p static/*.woff2 public/style/
 
 # Temp file
 touch content/temp
@@ -126,12 +126,10 @@ sed -i '/<!-- projectCard -->/ {r '"content/blogtemp"'
 d;};' public/blog.html
 
 # Adjust paths
-sed -i 's|../static/main.css| style/main.css|' public/blog.html
-sed -i 's|../static/fonts.css| style/fonts.css|' public/blog.html
-sed -i 's|../static/main.css| style/main.css|' public/selected-works.html
-sed -i 's|../static/fonts.css| style/fonts.css|' public/selected-works.html
-sed -i 's|../static/main.css| style/main.css|' public/index.html
-sed -i 's|../static/fonts.css| style/fonts.css|' public/index.html
+# Rewrite ../static/ -> style/ for every asset reference (CSS, fonts, ...)
+sed -i 's|../static/|style/|g' public/blog.html
+sed -i 's|../static/|style/|g' public/selected-works.html
+sed -i 's|../static/|style/|g' public/index.html
 echo 'Adjusting file paths...'
 
 # Add social media menu

@@ -61,8 +61,8 @@ sed -i '$d' public/"${FILENAME}_temp".html
 sed -i '$d' public/"${FILENAME}_temp".html
 
 # Adjust paths
-sed -i 's|../static/main.css|style/main.css|' public/$FILENAME.html
-sed -i 's|../static/fonts.css|style/fonts.css|' public/$FILENAME.html
+# Rewrite ../static/ -> style/ for every asset reference (CSS, fonts, ...)
+sed -i 's|../static/|style/|g' public/$FILENAME.html
 
 # Modify content/$FILENAME.html
 # and insert contents from index template before and after
