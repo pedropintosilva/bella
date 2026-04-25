@@ -27,6 +27,9 @@ cp -p static/fonts.css public/style/fonts.css
 [ ! -d public/blog ] && mkdir -p public/blog/
 cp -rp content/blog/images/. public/blog/images
 
+# Copy the ODT source so it can be downloaded from the rendered post
+cp -p content/blog/$FILENAME.odt public/blog/$FILENAME.odt
+
 # Create new empty project page following template
 cp -frp content/blog/template -T public/blog/$FILENAME.html
 
@@ -76,6 +79,9 @@ d;};' public/blog/$FILENAME.html
 
 # Add additional class to content box: 'page' and 'post'
 sed -i 's|box content|box content page post|' public/blog/$FILENAME.html
+
+# Resolve the ODT download placeholder to an actual link to the source ODT
+sed -i 's|<!-- odtDownload -->|<p class="odt-source"><a href="'"$FILENAME"'.odt" download>Download this post as ODT</a></p>|' public/blog/$FILENAME.html
 
 # Append project to blog list
 echo $FILENAME >> content/blog/list-ids
