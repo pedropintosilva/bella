@@ -45,8 +45,9 @@ sed -i 's|src="Pictures/|src="images/|g' public/blog/"${FILENAME}_converted".htm
 # Go up one level in directory when placing img tags sources
 sed -i 's|src="../images/|src="images/|g' public/blog/"${FILENAME}_converted".html
 
-# Remove anchors from headings
-sed -i 's|<a id="anchor001"></a>||g' public/blog/"${FILENAME}_converted".html
+# Remove the trailing <a id="anchorN"></a> that odf2xhtml emits inside every heading.
+# Anchored to </h[1-6]> so anchors elsewhere (e.g. from a Table of Contents) are not touched.
+sed -i 's|<a id="anchor[0-9]\+"></a></h\([1-6]\)>|</h\1>|g' public/blog/"${FILENAME}_converted".html
 
 # Remove any div tags
 sed -i -e 's|<div>||g;s|</div>||g' public/blog/"${FILENAME}_converted".html
@@ -79,6 +80,10 @@ d;};' public/blog/$FILENAME.html
 
 # Add additional class to content box: 'page' and 'post'
 sed -i 's|box content|box content page post|' public/blog/$FILENAME.html
+
+# Wrap the post's subtitle (h4 right after h1) into the h1 as a doc-subtitle span
+# so the title/subtitle pair is one semantic unit instead of two sibling headings
+perl -i -0pe 's|<h1>(.*?)</h1>\s*<h4>(.*?)</h4>|<h1>$1 <span role="doc-subtitle" class="subtitle">$2</span></h1>|' public/blog/$FILENAME.html
 
 # Resolve the ODT download placeholder to an actual link to the source ODT
 sed -i 's|<!-- odtDownload -->|<p class="odt-source"><a href="'"$FILENAME"'.odt" download>Download this post as ODT</a></p>|' public/blog/$FILENAME.html

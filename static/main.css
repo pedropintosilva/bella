@@ -80,6 +80,11 @@ h4 {
 	font-size: 42px;
 	margin-bottom: var(--heading-margin-bottom);
 }
+h1 .subtitle {
+	display: block;
+	font-weight: 200;
+	font-size: 42px;
+}
 pre {
 	font-family: 'Monoid';
 	font-size: 12px;
