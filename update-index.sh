@@ -7,8 +7,8 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 NC='\033[0m' # No Color
 
-# Remove anything old and empty lists
-[ -d public ] && echo -e "\n${RED}Removing generated old files\n* rm -r public/\n* > content/projects/list-ids\n* > content/projects/list-names" && cd public/ && rm -r `ls | grep -v ".git"` && cd ..
+# Remove anything old and empty lists. RSS feeds (*.xml) and hidden files (e.g. .git) are preserved.
+[ -d public ] && echo -e "\n${RED}Removing generated old files (keeping *.xml feeds and hidden files)\n* > content/projects/list-ids\n* > content/projects/list-names" && cd public/ && rm -r `ls | grep -v "\.xml$"` && cd ..
 > content/projects/list-ids
 > content/projects/list-names
 > content/blog/list-ids
@@ -16,11 +16,7 @@ NC='\033[0m' # No Color
 
 
 echo -e "\n${GREEN}Creating directory tree...\n* public\n* public/style\n* public/projects\n* public/images${NC}"
-rm -rf public
-mkdir public
-mkdir public/style
-mkdir public/projects
-mkdir public/images
+mkdir -p public public/style public/projects public/images
 
 # Call generate-page.sh
 #  How many top pages?
@@ -224,3 +220,4 @@ done
 rm content/temp
 rm content/blogtemp
 echo -e 'Removing temp files...\n\nWebsite generated:\n  ⮡ 📂 ./public'
+[ -f public/blog.xml ] && [ -f public/projects.xml ] && echo -e '  ⮡ Preserved RSS feeds: public/blog.xml, public/projects.xml' || echo -e '  ⚠ No RSS feeds in public/. Seed once with:  cp /home/pedro/pintosilva.com/public/{blog,projects}.xml public/'
