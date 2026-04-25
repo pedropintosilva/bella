@@ -333,7 +333,7 @@ pre {
 	color: var(--color);
 	font-size: 30px;
 	font-weight: 300;
-	padding-top: 0;
+	padding: 0 4px;
 	margin-top: 0;
 }
 
