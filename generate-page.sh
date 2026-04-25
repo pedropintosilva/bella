@@ -23,7 +23,7 @@ if [ -n "$REMOVE" ]; then
 fi
 
 # Copy static content
-cp -rp static/images public/images
+cp -rp static/images/. public/images
 cp -p static/main.css public/style/main.css
 cp -p static/fonts.css public/style/fonts.css
 
