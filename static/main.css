@@ -85,6 +85,13 @@ h1 .subtitle {
 	font-weight: 200;
 	font-size: 42px;
 }
+.heading-anchor {
+	color: inherit !important;
+	text-decoration: none;
+}
+.heading-anchor:hover {
+	text-decoration:underline ;
+}
 pre {
 	font-family: 'Monoid';
 	font-size: 12px;

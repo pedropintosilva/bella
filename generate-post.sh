@@ -85,6 +85,30 @@ sed -i 's|box content|box content page post|' public/blog/$FILENAME.html
 # so the title/subtitle pair is one semantic unit instead of two sibling headings
 perl -i -0pe 's|<h1>(.*?)</h1>\s*<h4>(.*?)</h4>|<h1>$1 <span role="doc-subtitle" class="subtitle">$2</span></h1>|' public/blog/$FILENAME.html
 
+# Make every heading clickable: derive a slug id from the heading text and
+# wrap the visible text in a self-link so visitors can grab a permalink to
+# any section. Slug rule: lowercase, non-alphanumeric runs collapse to "_",
+# trimmed. The h1's optional subtitle span is preserved verbatim and stays
+# outside the link (only the title text is linked).
+perl -i -0pe '
+sub slug {
+    local $_ = lc shift;
+    s/&amp;/and/g;
+    s/&[a-z]+;//g;
+    s/[^a-z0-9]+/_/g;
+    s/^_+|_+$//g;
+    $_
+}
+s|<h1>([^<]+?)((?: <span role="doc-subtitle" class="subtitle">[^<]*</span>)?)</h1>|
+    my $sl = slug($1);
+    qq{<h1 id="$sl"><a class="heading-anchor" href="#$sl">$1</a>$2</h1>}
+|se;
+s|<(h[2-6])>([^<]+)</\1>|
+    my $sl = slug($2);
+    qq{<$1 id="$sl"><a class="heading-anchor" href="#$sl">$2</a></$1>}
+|seg;
+' public/blog/$FILENAME.html
+
 # Resolve the ODT download placeholder to an actual link to the source ODT
 sed -i 's|<!-- odtDownload -->|<p class="odt-source"><a href="'"$FILENAME"'.odt" download>Download this post as ODT</a></p>|' public/blog/$FILENAME.html
 
