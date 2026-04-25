@@ -29,31 +29,21 @@ generate_rss_entrie () {
     title="$(sed -n 's/<h1>\(.*\)<\/h1>/\1/ip' "./public/projects/$1")"
     echo -e "\nTitle: $title"
 
-    # Check and see if this page has already been added to the RSS feed.
-    # if grep -q "<guid.*>$link</guid>" "$rssfile"; then
-    #     # Do this if it has been adding and we are updating it.
+    # Skip if this entry is already in the feed (preserves the existing pubDate).
+    if grep -q "<guid.*>$link</guid>" "$rssfile"; then
+        echo "Already in feed, skipping"
+        return
+    fi
 
-    #     # If updating a file, we append the time/date to the GUID, as all GUIDs
-    #     # must be unique to validate an RSS feed. Even feed readers that follow
-    #     # GUIDs will still be lead to the same page with this.
-    #     guid="$link#$(date '+%y%m%d%H%M%S')"
-    #     title="$title (Updated)"
-    #     echo "Explain the nature of the update:"
-    #     read -r content
-    #     [ -z "$content" ] && content="New updates to $link"
-    # else
-        # Do this if it is a new page.
-        # echo -e "\nNew page"
-        guid=$link
-        # Get the page body content, excluding the nav and footer.
-        content="$(tr '\n' $replchar < "./public/projects/$1" | sed "
-        s/.*<body>//
-        s/<footer>.*<\/footer>//
-        s/<nav>.*<\/nav>//
-        s/<\/body>.*//
-        " | tr -s $replchar '\n')"
-       echo -e "$content\n"
-    # fi
+    guid=$link
+    # Get the page body content, excluding the nav and footer.
+    content="$(tr '\n' $replchar < "./public/projects/$1" | sed "
+    s/.*<body>//
+    s/<footer>.*<\/footer>//
+    s/<nav>.*<\/nav>//
+    s/<\/body>.*//
+    " | tr -s $replchar '\n')"
+    echo -e "$content\n"
 
     rssdate="$(LC_TIME=en_US date '+%a, %d %b %Y %H:%M:%S %z')"
 
@@ -85,8 +75,12 @@ if [[ ! $UPDATEALL =~ ^[Yy]$ ]]
 then
     exit 1
 fi
-echo -e '\n'${BLUE}'Copied template XML to public folder:'
-cp -p ${rssfile} public/${rssfile}
+if [ ! -f "public/${rssfile}" ]; then
+    echo -e '\n'${BLUE}'Initializing public/'${rssfile}' from template:'
+    cp -p ${rssfile} public/${rssfile}
+else
+    echo -e '\n'${BLUE}'Reusing existing public/'${rssfile}' (existing entries are preserved):'
+fi
 rssfile="public/${rssfile}"
 echo -e '\n'${BLUE}'Creating rss feed entries:
 \n----------------------------'
